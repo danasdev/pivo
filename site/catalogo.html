@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Catálogo — PIVÔ</title>
+<meta name="description" content="Bolsas, anabelas, papetes, plataformas, rasteiras e salto fino da PIVÔ.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#7A2614">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PIVÔ">
+<meta property="og:title" content="Catálogo — PIVÔ">
+<meta property="og:description" content="Bolsas, anabelas, papetes, plataformas, rasteiras e salto fino. Seu estilo te move.">
+<meta property="og:image" content="img/campanha.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(28px,4vh,44px)}
+.count{font:400 15px/1.4 var(--body);color:var(--muted);white-space:nowrap}
+.bar{position:sticky;top:96px;z-index:5;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 0;margin-bottom:clamp(24px,3vh,36px);background:var(--cream);border-bottom:1px solid var(--line)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gut));padding:2px var(--gut)}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(122,38,20,.25);
+  background:none;font:500 14px/1 var(--body);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.chip span{font-weight:400;opacity:.7}
+.chip:hover{border-color:var(--rust)}
+.chip[aria-pressed="true"]{background:var(--rust);border-color:var(--rust);color:var(--cream)}
+.tools{display:flex;gap:10px;align-items:center}
+.sel{position:relative}
+.sel select{appearance:none;height:44px;padding:0 40px 0 18px;border-radius:999px;border:1px solid rgba(122,38,20,.25);background:none;
+  font:500 14px/1 var(--body);color:var(--rust);cursor:pointer}
+.sel::after{content:"";position:absolute;right:18px;top:50%;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.sizes-f{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.sizes-f .lbl{font:500 13px/1 var(--body);color:var(--muted);margin-right:4px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,3vw,44px) clamp(16px,2vw,28px)}
+.empty{grid-column:1/-1;text-align:center;padding:72px 0}
+.empty p{font:400 clamp(26px,2.4vw,36px)/1.15 var(--serif)}
+.empty span{display:block;margin:12px 0 24px;font:400 16px/1.5 var(--body);color:var(--muted)}
+@media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:900px){ .bar{top:84px} }
+@media (max-width:760px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:28px 12px}
+  .prod__row{flex-direction:column;gap:4px}
+  .prod__name,.prod__price{font-size:14px}
+  .prod__meta .stock{display:none}
+  .head{flex-direction:column;align-items:flex-start}
+  .bar{position:static}
+  .tools{width:100%;flex-direction:column;align-items:stretch;gap:10px}
+  .sizes-f{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gut));padding:2px var(--gut)}
+  .sizes-f::-webkit-scrollbar{display:none}
+  .sizes-f .size{flex:none}
+  .sel select{width:100%}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <nav class="crumbs" aria-label="Você está em"><a href="index.html">Início</a><span aria-hidden="true">/</span><span aria-current="page" id="crumb">Catálogo</span></nav>
+  <div class="head">
+    <h1 class="duo" id="titulo"><span class="l1">Todas as peças.</span><span class="l2">Encontre o seu passo.</span></h1>
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips" role="group" aria-label="Categorias"></div>
+    <div class="tools">
+      <div class="sizes-f" id="sizesF" role="group" aria-label="Tamanho"><span class="lbl">Tamanho</span></div>
+      <label class="sel"><span class="sr">Ordenar por</span>
+        <select id="ordem">
+          <option value="novos">Novidades</option>
+          <option value="menor">Menor preço</option>
+          <option value="maior">Maior preço</option>
+          <option value="aval">Mais avaliados</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<script src="js/catalogo.js"></script>
+<script src="js/base.js"></script>
+<script>
+moldura('catalogo');
+const q = new URLSearchParams(location.search);
+const estado = {cat: CATEGORIAS.some(c => c.slug === q.get('cat')) ? q.get('cat') : 'todos', tam: null, ordem: 'novos'};
+
+const chips = document.getElementById('chips');
+chips.innerHTML = [{slug:'todos', nome:'Todos'}, ...CATEGORIAS].map(c => {
+  const n = c.slug === 'todos' ? PRODUTOS.length : PRODUTOS.filter(p => p.cat === c.slug).length;
+  return `<button class="chip" data-cat="${c.slug}">${c.nome} <span>${n}</span></button>`;
+}).join('');
+document.getElementById('sizesF').insertAdjacentHTML('beforeend', TAM.map(t => `<button class="size" data-tam="${t}" aria-pressed="false" aria-label="Tamanho ${t}">${t}</button>`).join(''));
+
+function desenhar(){
+  const c = CATEGORIAS.find(c => c.slug === estado.cat);
+  document.title = `${c ? c.nome : 'Catálogo'} — PIVÔ`;
+  document.getElementById('crumb').textContent = c ? c.nome : 'Catálogo';
+  document.getElementById('titulo').innerHTML = c
+    ? `<span class="l1">${c.nome}.</span><span class="l2">${c.desc}</span>`
+    : `<span class="l1">Todas as peças.</span><span class="l2">Encontre o seu passo.</span>`;
+  chips.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.cat === estado.cat));
+  document.querySelectorAll('#sizesF .size').forEach(b => b.setAttribute('aria-pressed', +b.dataset.tam === estado.tam));
+  // bolsas não têm tamanho: o filtro some
+  document.getElementById('sizesF').hidden = estado.cat === 'bolsas';
+
+  let l = PRODUTOS.filter(p => estado.cat === 'todos' || p.cat === estado.cat);
+  if (estado.tam) l = l.filter(p => p.tam && p.tam.includes(estado.tam) && !p.esgot.includes(estado.tam));
+  const o = {
+    novos: (a, b) => (b.novo ? 1 : 0) - (a.novo ? 1 : 0),
+    menor: (a, b) => a.preco - b.preco,
+    maior: (a, b) => b.preco - a.preco,
+    aval:  (a, b) => b.aval - a.aval,
+  }[estado.ordem];
+  l = l.slice().sort(o);
+
+  document.getElementById('count').textContent = `${l.length} ${l.length === 1 ? 'peça' : 'peças'}`;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = l.length ? l.map(card).join('') : `<div class="empty"><p>Nenhuma peça no tamanho ${estado.tam} aqui.</p>
+    <span>Tente outro tamanho ou veja todas as categorias.</span><button class="btn btn--ghost" id="limpar">Limpar filtros</button></div>`;
+  revelar(grid);
+  const lim = document.getElementById('limpar');
+  if (lim) lim.onclick = () => { estado.tam = null; estado.cat = 'todos'; atualizar(); };
+}
+function atualizar(){
+  const u = new URL(location);
+  if (estado.cat === 'todos') u.searchParams.delete('cat'); else u.searchParams.set('cat', estado.cat);
+  history.replaceState(null, '', u);
+  desenhar();
+}
+chips.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; estado.cat = b.dataset.cat; if (estado.cat === 'bolsas') estado.tam = null; atualizar(); });
+document.getElementById('sizesF').addEventListener('click', e => { const b = e.target.closest('.size'); if (!b) return; const t = +b.dataset.tam; estado.tam = estado.tam === t ? null : t; desenhar(); });
+document.getElementById('ordem').addEventListener('change', e => { estado.ordem = e.target.value; desenhar(); });
+desenhar();
+</script>
+</body>
+</html>

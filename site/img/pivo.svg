@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 795 486" fill="currentColor" role="img" aria-label="PIVÔ">
-  <path fill-rule="evenodd" d="M0 61h72a45 45 0 0 1 45 45v182a45 45 0 0 1-45 45H31v153H0Zm31 31v210h37a18 18 0 0 0 18-18V110a18 18 0 0 0-18-18Z"/>
-  <rect x="251" y="61" width="30" height="425"/>
-  <path d="M410 61h31l40 362 45-362h30l-56 425h-39Z"/>
-  <path fill-rule="evenodd" d="M677 121.5a58.5 58.5 0 0 1 117 0v306a58.5 58.5 0 0 1-117 0Zm31 1a27.5 27.5 0 0 1 55 0v304a27.5 27.5 0 0 1-55 0Z"/>
-  <path d="M690 37 722 3h28l32 34v6h-21l-25-26-25 26h-21Z"/>
-</svg>

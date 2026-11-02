@@ -6,6 +6,14 @@
 <meta name="color-scheme" content="light">
 <title>PIVÔ — Seu estilo te move</title>
 <meta name="description" content="Bolsas, anabelas, papetes, plataformas, rasteiras e salto fino. Seu estilo te move.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#7A2614">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PIVÔ">
+<meta property="og:title" content="PIVÔ — Seu estilo te move">
+<meta property="og:description" content="Bolsas, anabelas, papetes, plataformas, rasteiras e salto fino. Seu estilo te move.">
+<meta property="og:image" content="img/campanha.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
@@ -295,7 +303,7 @@ a{color:inherit;text-decoration:none}
 .rodape__word.up .mask:nth-child(4) svg{transition-delay:.24s}
 .rodape__bottom{display:flex;justify-content:space-between;gap:16px;padding:22px 0 28px;border-top:1px solid rgba(122,38,20,.16);font:400 13px/1.4 var(--body);opacity:.8}
 @media (max-width:900px){ .rodape__top{grid-template-columns:1fr 1fr} .rodape__brand{grid-column:1/-1} }
-@media (max-width:560px){ .final h2{font-size:clamp(34px,10vw,48px)} .rodape__bottom{flex-direction:column} }
+@media (max-width:560px){ .final h2{font-size:clamp(34px,10vw,48px)} .final .cta{white-space:nowrap;padding:0 22px;font-size:15px} .rodape__bottom{flex-direction:column} }
 
 /* ---------- MENU DO CELULAR ---------- */
 .menu{position:fixed;inset:0;z-index:40;background:var(--cream);color:var(--rust);display:flex;flex-direction:column;padding:96px 24px 32px;
@@ -400,11 +408,11 @@ body.menu-open{overflow:hidden}
 <header class="nav" id="nav">
   <a href="#" class="nav__logo" aria-label="PIVÔ, início"><svg viewBox="0 0 795 486" fill="currentColor"><use href="#pivo-full"/></svg></a>
   <nav class="nav__links" aria-label="Categorias">
-    <a href="#">Bolsas</a><a href="#">Anabela</a><a href="#">Papete</a><a href="#">Plataforma</a><a href="#">Rasteira</a><a href="#">Salto fino</a>
+    <a href="catalogo.html?cat=bolsas">Bolsas</a><a href="catalogo.html?cat=anabela">Anabela</a><a href="catalogo.html?cat=papete">Papete</a><a href="catalogo.html?cat=plataforma">Plataforma</a><a href="catalogo.html?cat=rasteira">Rasteira</a><a href="catalogo.html?cat=salto-fino">Salto fino</a>
   </nav>
   <div class="nav__end">
-    <a href="#" class="pill">Comprar agora</a>
-    <a href="#" class="icon-btn" id="bag" aria-label="Sacola, 0 itens">
+    <a href="catalogo.html" class="pill">Comprar agora</a>
+    <a href="sacola.html" class="icon-btn" id="bag" aria-label="Sacola, 0 itens">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <b id="bagCount" hidden>0</b>
     </a>
@@ -417,19 +425,19 @@ body.menu-open{overflow:hidden}
 
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <ul class="menu__cats">
-    <li><a href="#">Bolsas <span>Ver</span></a></li><li><a href="#">Salto fino <span>Ver</span></a></li>
-    <li><a href="#">Plataforma <span>Ver</span></a></li><li><a href="#">Anabela <span>Ver</span></a></li>
-    <li><a href="#">Papete <span>Ver</span></a></li><li><a href="#">Rasteira <span>Ver</span></a></li>
+    <li><a href="catalogo.html?cat=bolsas">Bolsas <span>Ver</span></a></li><li><a href="catalogo.html?cat=salto-fino">Salto fino <span>Ver</span></a></li>
+    <li><a href="catalogo.html?cat=plataforma">Plataforma <span>Ver</span></a></li><li><a href="catalogo.html?cat=anabela">Anabela <span>Ver</span></a></li>
+    <li><a href="catalogo.html?cat=papete">Papete <span>Ver</span></a></li><li><a href="catalogo.html?cat=rasteira">Rasteira <span>Ver</span></a></li>
   </ul>
-  <div class="menu__more"><a href="#">Novidades</a><a href="#">Guia de tamanhos</a><a href="#">Trocas e devoluções</a><a href="#">Fale conosco</a></div>
-  <a href="#" class="menu__cta">Comprar agora</a>
+  <div class="menu__more"><a href="catalogo.html">Todas as peças</a><a href="#">Guia de tamanhos</a><a href="#">Trocas e devoluções</a><a href="#">Fale conosco</a></div>
+  <a href="catalogo.html" class="menu__cta">Comprar agora</a>
 </div>
 
 <nav class="tabbar" id="tabbar" aria-label="Atalhos">
-  <a href="#" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4v-9Z"/></svg>Início</a>
+  <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4v-9Z"/></svg>Início</a>
   <button class="tab" id="tabCats" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Categorias</button>
   <a href="#" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"/></svg>Favoritos</a>
-  <a href="#" class="tab" id="tabBag" aria-label="Sacola, 0 itens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Sacola<b id="tabCount" hidden>0</b></a>
+  <a href="sacola.html" class="tab" id="tabBag" aria-label="Sacola, 0 itens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Sacola<b id="tabCount" hidden>0</b></a>
 </nav>
 
 <main>
@@ -448,7 +456,7 @@ body.menu-open{overflow:hidden}
 
     <div class="foot">
       <p>Bolsas, anabelas, papetes, plataformas, rasteiras e salto fino escolhidos a dedo para quem não para.</p>
-      <a href="#" class="cta">Comprar agora
+      <a href="catalogo.html" class="cta">Comprar agora
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
     </div>
   </section>
@@ -456,7 +464,7 @@ body.menu-open{overflow:hidden}
   <section class="colecoes" id="colecoes" aria-labelledby="col-title">
     <div class="colecoes__head">
       <h2 id="col-title" data-reveal="left"><span class="l1">O ritual PIVÔ.</span><span class="l2">Cada estilo, uma história.</span></h2>
-      <a href="#" class="ver-tudo" data-reveal="right">Ver todas as peças
+      <a href="catalogo.html" class="ver-tudo" data-reveal="right">Ver todas as peças
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
     </div>
     <div class="cats" id="cats"></div>
@@ -504,7 +512,7 @@ body.menu-open{overflow:hidden}
     <div class="final__bg" id="finalBg"><img src="img/fundo.jpg" alt="" loading="lazy"></div>
     <h2 id="final-title" data-reveal><span class="l1">Pronto para encontrar</span><span class="l2">o seu estilo?</span></h2>
     <div class="final__ctas" data-reveal style="--rd:.1s">
-      <a href="#" class="cta">Explorar o catálogo completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
+      <a href="catalogo.html" class="cta">Explorar o catálogo completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
       <a href="#" class="wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1Z"/><path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1-.6 1.6c-3.8 0-8.5-4.7-8.5-8.5l1.6-.6 1 2L9 9.5Z"/></svg>ou fale com a gente no WhatsApp</a>
     </div>
   </section>
@@ -513,7 +521,7 @@ body.menu-open{overflow:hidden}
 <footer class="rodape">
   <div class="rodape__top">
     <div class="rodape__brand" data-reveal="left"><p class="rodape__slogan">Seu estilo te move.</p></div>
-    <nav aria-label="Loja" data-reveal style="--rd:.05s"><h3>Loja</h3><ul><li><a href="#">Bolsas</a></li><li><a href="#">Anabela</a></li><li><a href="#">Papete</a></li><li><a href="#">Plataforma</a></li><li><a href="#">Rasteira</a></li><li><a href="#">Salto fino</a></li></ul></nav>
+    <nav aria-label="Loja" data-reveal style="--rd:.05s"><h3>Loja</h3><ul><li><a href="catalogo.html?cat=bolsas">Bolsas</a></li><li><a href="catalogo.html?cat=anabela">Anabela</a></li><li><a href="catalogo.html?cat=papete">Papete</a></li><li><a href="catalogo.html?cat=plataforma">Plataforma</a></li><li><a href="catalogo.html?cat=rasteira">Rasteira</a></li><li><a href="catalogo.html?cat=salto-fino">Salto fino</a></li></ul></nav>
     <nav aria-label="Ajuda" data-reveal style="--rd:.1s"><h3>Ajuda</h3><ul><li><a href="#">Trocas e devoluções</a></li><li><a href="#">Entregas</a></li><li><a href="#">Guia de tamanhos</a></li><li><a href="#">Fale conosco</a></li></ul></nav>
     <nav aria-label="Redes" data-reveal style="--rd:.15s"><h3>Siga</h3><ul><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li></ul></nav>
   </div>
@@ -525,8 +533,9 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="rodape__bottom"><span>© 2026 PIVÔ. Todos os direitos reservados.</span><span>Bolsas e calçados</span></div>
 </footer>
-<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastTxt">Adicionado à sacola</span><a href="#">Ver sacola</a></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastTxt">Adicionado à sacola</span><a href="sacola.html">Ver sacola</a></div>
 
+<script src="js/catalogo.js"></script>
 <script>
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const OUT = 'cubic-bezier(.16,1,.3,1)', INOUT = 'cubic-bezier(.76,0,.24,1)', IN = 'cubic-bezier(.7,0,.84,0)';
@@ -540,16 +549,16 @@ new IntersectionObserver(([e]) => document.getElementById('nav').classList.toggl
 
 /* coleções: cards com a foto do produto e, no hover, a peça em uso */
 const CATS = [
-  {n:'Bolsas',     f:'bolsas',     d:'Estruturadas, de ombro e de mão.'},
-  {n:'Salto fino', f:'salto',      d:'Para quando o passo é o recado.'},
-  {n:'Plataforma', f:'plataforma', d:'Altura com conforto o dia todo.'},
-  {n:'Anabela',    f:'anabela',    d:'Juta, couro e verão.'},
-  {n:'Papete',     f:'papete',     d:'Firme no pé, leve no estilo.'},
-  {n:'Rasteira',   f:'rasteira',   d:'O mínimo que faz diferença.'},
+  {n:'Bolsas',     s:'bolsas',     f:'bolsas',     d:'Estruturadas, de ombro e de mão.'},
+  {n:'Salto fino', s:'salto-fino', f:'salto',      d:'Para quando o passo é o recado.'},
+  {n:'Plataforma', s:'plataforma', f:'plataforma', d:'Altura com conforto o dia todo.'},
+  {n:'Anabela', s:'anabela', f:'anabela',    d:'Juta, couro e verão.'},
+  {n:'Papete', s:'papete', f:'papete',     d:'Firme no pé, leve no estilo.'},
+  {n:'Rasteira', s:'rasteira', f:'rasteira',   d:'O mínimo que faz diferença.'},
 ];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>';
 document.getElementById('cats').innerHTML = CATS.map((c, i) => `
-  <a class="cat" href="#" data-reveal style="--rd:${(i % 3) * .1}s">
+  <a class="cat" href="catalogo.html?cat=${c.s}" data-reveal style="--rd:${(i % 3) * .1}s">
     <div class="cat__media">
       <img src="img/colecoes/${c.f}.jpg" alt="${c.n}" loading="lazy">
       <img class="cat__back" src="img/colecoes/${c.f}-uso.jpg" alt="" aria-hidden="true" loading="lazy">
@@ -590,11 +599,12 @@ const PRODS = [
 ];
 const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z"/></svg>';
 const HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"/></svg>';
+const linkP = p => { const x = PRODUTOS.find(q => q.nome === p.n); return x ? 'produto.html?id=' + x.id : 'catalogo.html'; };
 const track = document.getElementById('track');
 track.innerHTML = PRODS.map((p, i) => `
   <article class="prod" data-i="${i}" data-reveal style="--rd:${(i % 4) * .08}s">
     <div class="prod__media">
-      <a href="#" aria-label="${p.n}"><img src="img/colecoes/${p.f}.jpg" alt="${p.n}" loading="lazy" draggable="false">
+      <a href="${linkP(p)}" aria-label="${p.n}"><img src="img/colecoes/${p.f}.jpg" alt="${p.n}" loading="lazy" draggable="false">
       <img class="prod__back" src="img/colecoes/${p.f}-uso.jpg" alt="" aria-hidden="true" loading="lazy" draggable="false"></a>
       ${p.b ? `<span class="badge">${p.b}</span>` : ''}
       <button class="fav" aria-pressed="false" aria-label="Favoritar ${p.n}">${HEART}</button>
@@ -603,13 +613,26 @@ track.innerHTML = PRODS.map((p, i) => `
         : `<button class="add">Adicionar à sacola</button>`}</div>
       <button class="quick-open" aria-label="Comprar ${p.n}" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
     </div>
-    <div class="prod__row"><a href="#" class="prod__name">${p.n}</a><span class="prod__price">${p.p}</span></div>
+    <div class="prod__row"><a href="${linkP(p)}" class="prod__name">${p.n}</a><span class="prod__price">${p.p}</span></div>
     <div class="prod__meta"><span class="stars" aria-label="Nota ${p.r} de 5">${STAR.repeat(5)}<span>${p.r} (${p.c})</span></span><span class="stock"><i></i>${p.s}</span></div>
   </article>`).join('');
 
 // sacola: adiciona sem recarregar e avisa
 let bagN = 0, toastT;
+// mostra o que já está na sacola ao abrir a home
+try {
+  const n0 = (JSON.parse(localStorage.getItem('pivo-sacola')) || []).reduce((n, i) => n + i.q, 0);
+  if (n0){ bagN = n0; ['bagCount','tabCount'].forEach(id => { const b = document.getElementById(id); b.hidden = false; b.textContent = n0; }); }
+} catch(e){}
 function addToBag(p, size){
+  const x = PRODUTOS.find(q => q.nome === p.n);
+  try {
+    const l = JSON.parse(localStorage.getItem('pivo-sacola')) || [];
+    const it = l.find(i => i.id === x.id && i.t === (size ? +size : null));
+    if (it) it.q++; else l.push({id:x.id, t:size ? +size : null, q:1});
+    localStorage.setItem('pivo-sacola', JSON.stringify(l));
+    bagN = l.reduce((n, i) => n + i.q, 0) - 1;
+  } catch(e){}
   bagN++;
   const c = document.getElementById('bagCount'); c.hidden = false; c.textContent = bagN;
   const tc = document.getElementById('tabCount'); tc.hidden = false; tc.textContent = bagN;
