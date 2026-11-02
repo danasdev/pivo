@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cookies.css">
 <style>
 .cart{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,4vh,44px)}
 .items{list-style:none;border-top:1px solid var(--line)}
@@ -47,6 +48,9 @@
 .sum .note{margin-top:4px;font:400 13px/1.5 var(--body);color:var(--muted)}
 .sum .btn{width:100%;margin-top:22px}
 .sum .back{display:block;text-align:center;margin-top:14px;font:400 14px/1 var(--body);text-decoration:underline;text-underline-offset:3px;padding:12px 0}
+.sum .ck{margin-top:12px;min-height:20px;font:500 14px/1.45 var(--body);color:#A42B12}
+.sum .note a{text-decoration:underline;text-underline-offset:3px}
+.sum .btn svg{width:20px;height:20px}
 .sum .wa{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;font:400 14px/1.4 var(--body);padding:10px 0}
 .sum .wa svg{width:18px;height:18px}
 
@@ -68,64 +72,9 @@
   <div id="conteudo"></div>
 </main>
 
-<script src="js/catalogo.js"></script>
+<script src="js/util.js"></script>
 <script src="js/base.js"></script>
-<script>
-moldura('sacola');
-const box = document.getElementById('conteudo');
-function desenhar(){
-  const itens = Sacola.itens().map((i, k) => ({...i, k, p: produto(i.id)})).filter(i => i.p);
-  if (!itens.length){
-    box.innerHTML = `<div class="empty">
-      <h1 class="duo"><span class="l1">Sua sacola está vazia.</span><span class="l2">O próximo passo é seu.</span></h1>
-      <p>Explore as novas chegadas e escolha a peça que combina com o seu estilo.</p>
-      <a class="btn" href="catalogo.html">Explorar o catálogo ${ICON.arrow}</a></div>`;
-    return;
-  }
-  const qtd = itens.reduce((n, i) => n + i.q, 0);
-  const sub = itens.reduce((n, i) => n + i.q * i.p.preco, 0);
-  box.innerHTML = `
-    <h1 class="duo"><span class="l1">Sua sacola.</span><span class="l2">${qtd} ${qtd === 1 ? 'peça escolhida' : 'peças escolhidas'}.</span></h1>
-    <div class="cart">
-      <ul class="items" aria-label="Itens da sacola">${itens.map(i => `
-        <li class="item">
-          <a class="item__img" href="${linkProd(i.p.id)}"><img src="${i.p.img}" alt="${i.p.nome}"></a>
-          <div>
-            <h2><a href="${linkProd(i.p.id)}">${i.p.nome}</a></h2>
-            <p class="sub">${catNome(i.p.cat)}${i.t ? ` · Tamanho ${i.t}` : ''} · ${brl(i.p.preco)} cada</p>
-            <div class="row">
-              <div class="qty" role="group" aria-label="Quantidade de ${i.p.nome}">
-                <button data-d="-1" data-k="${i.k}" aria-label="Diminuir" ${i.q < 2 ? 'disabled' : ''}>${ICON.minus}</button>
-                <output aria-live="polite">${i.q}</output>
-                <button data-d="1" data-k="${i.k}" aria-label="Aumentar">${ICON.plus}</button>
-              </div>
-              <button class="rm" data-rm="${i.k}">Remover</button>
-            </div>
-          </div>
-          <span class="item__price">${brl(i.q * i.p.preco)}</span>
-        </li>`).join('')}
-      </ul>
-      <aside class="sum" aria-labelledby="sum-t">
-        <h2 id="sum-t">Resumo</h2>
-        <dl>
-          <div class="l"><dt>Subtotal (${qtd} ${qtd === 1 ? 'item' : 'itens'})</dt><dd>${brl(sub)}</dd></div>
-          <div class="l"><dt>Frete</dt><dd>Calculado na finalização</dd></div>
-          <div class="l tot"><dt>Total</dt><dd>${brl(sub)}</dd></div>
-        </dl>
-        <p class="note">O valor do frete entra no total na próxima etapa.</p>
-        <a class="btn" href="#">Finalizar compra ${ICON.arrow}</a>
-        <a class="wa" href="#">${ICON.wa}Prefere comprar pelo WhatsApp?</a>
-        <a class="back" href="catalogo.html">Continuar comprando</a>
-      </aside>
-    </div>`;
-}
-box.addEventListener('click', e => {
-  const q = e.target.closest('[data-d]'), r = e.target.closest('[data-rm]');
-  if (q && !q.disabled){ Sacola.mudar(+q.dataset.k, +q.dataset.d); desenhar(); }
-  if (r){ Sacola.tirar(+r.dataset.rm); desenhar(); }
-});
-addEventListener('storage', desenhar);
-desenhar();
-</script>
+<script src="js/pagina-sacola.js"></script>
+<script type="module" src="js/loja.js"></script>
 </body>
 </html>

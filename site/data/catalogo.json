@@ -1,0 +1,399 @@
+{
+ "categorias": [
+  {
+   "slug": "bolsas",
+   "nome": "Bolsas",
+   "desc": "Estruturadas, de ombro e de mão.",
+   "ordem": 0
+  },
+  {
+   "slug": "salto-fino",
+   "nome": "Salto fino",
+   "desc": "Para quando o passo é o recado.",
+   "ordem": 1
+  },
+  {
+   "slug": "plataforma",
+   "nome": "Plataforma",
+   "desc": "Altura com conforto o dia todo.",
+   "ordem": 2
+  },
+  {
+   "slug": "anabela",
+   "nome": "Anabela",
+   "desc": "Juta, couro e verão.",
+   "ordem": 3
+  },
+  {
+   "slug": "papete",
+   "nome": "Papete",
+   "desc": "Firme no pé, leve no estilo.",
+   "ordem": 4
+  },
+  {
+   "slug": "rasteira",
+   "nome": "Rasteira",
+   "desc": "O mínimo que faz diferença.",
+   "ordem": 5
+  }
+ ],
+ "produtos": [
+  {
+   "id": "plataforma-caramelo",
+   "nome": "Plataforma Caramelo",
+   "cat": "plataforma",
+   "preco": 389.9,
+   "nota": 4.9,
+   "aval": 38,
+   "estoque": "Últimos 4 pares",
+   "novo": true,
+   "img": "img/colecoes/plataforma.jpg",
+   "uso": "img/colecoes/plataforma-uso.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [
+    38
+   ],
+   "desc": "Sandália plataforma em couro caramelo com tiras largas e fivela dourada. A sola alta deixa o passo firme e confortável do café ao fim da noite.",
+   "detalhes": [
+    "Cabedal em couro",
+    "Salto bloco de 10 cm com meia pata de 4 cm",
+    "Fivela dourada ajustável",
+    "Palmilha acolchoada"
+   ],
+   "ordem": 0,
+   "ativo": true
+  },
+  {
+   "id": "scarpin-cetim-coral",
+   "nome": "Scarpin Cetim Coral",
+   "cat": "salto-fino",
+   "preco": 349.9,
+   "nota": 4.8,
+   "aval": 52,
+   "estoque": "Em estoque",
+   "novo": true,
+   "img": "img/colecoes/salto.jpg",
+   "uso": "img/colecoes/salto-uso.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [],
+   "desc": "Scarpin de bico fino em cetim coral, a cor da PIVÔ. Salto agulha e linhas limpas para quando o look precisa de um ponto de luz.",
+   "detalhes": [
+    "Cabedal em cetim",
+    "Salto agulha de 10 cm",
+    "Bico fino",
+    "Forro em couro"
+   ],
+   "ordem": 1,
+   "ativo": true
+  },
+  {
+   "id": "bolsa-estruturada-terracota",
+   "nome": "Bolsa Estruturada Terracota",
+   "cat": "bolsas",
+   "preco": 499.9,
+   "nota": 5,
+   "aval": 21,
+   "estoque": "Em estoque",
+   "img": "img/colecoes/bolsas.jpg",
+   "uso": "img/colecoes/bolsas-uso.jpg",
+   "tam": null,
+   "desc": "Bolsa de mão estruturada em couro terracota com alça superior e fecho dourado. Cabe o essencial do dia e acompanha do trabalho ao jantar.",
+   "detalhes": [
+    "Couro com acabamento liso",
+    "Alça de mão fixa",
+    "Fecho dourado",
+    "Medidas: 26 × 20 × 11 cm"
+   ],
+   "ordem": 2,
+   "novo": false,
+   "esgot": [],
+   "ativo": true
+  },
+  {
+   "id": "anabela-juta-nude",
+   "nome": "Anabela Juta Nude",
+   "cat": "anabela",
+   "preco": 279.9,
+   "nota": 4.7,
+   "aval": 64,
+   "estoque": "Últimos 6 pares",
+   "img": "img/colecoes/anabela.jpg",
+   "uso": "img/colecoes/anabela-uso.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [
+    34
+   ],
+   "desc": "Anabela com plataforma de juta trançada e tiras em couro nude. Altura sem esforço para os dias de sol.",
+   "detalhes": [
+    "Tiras em couro",
+    "Plataforma em juta trançada de 11 cm",
+    "Fivela no tornozelo",
+    "Sola antiderrapante"
+   ],
+   "ordem": 3,
+   "novo": false,
+   "ativo": true
+  },
+  {
+   "id": "papete-couro-preto",
+   "nome": "Papete Couro Preto",
+   "cat": "papete",
+   "preco": 259.9,
+   "nota": 4.8,
+   "aval": 47,
+   "estoque": "Em estoque",
+   "novo": true,
+   "img": "img/colecoes/papete.jpg",
+   "uso": "img/colecoes/papete-uso.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [],
+   "desc": "Papete de tiras largas em couro preto com fivelas douradas. Firme no pé, leve no estilo, para andar a cidade inteira.",
+   "detalhes": [
+    "Couro",
+    "Duas fivelas ajustáveis",
+    "Sola tratorada leve",
+    "Palmilha anatômica"
+   ],
+   "ordem": 4,
+   "ativo": true
+  },
+  {
+   "id": "rasteira-fio-dourado",
+   "nome": "Rasteira Fio Dourado",
+   "cat": "rasteira",
+   "preco": 189.9,
+   "nota": 4.9,
+   "aval": 83,
+   "estoque": "Em estoque",
+   "img": "img/colecoes/rasteira.jpg",
+   "uso": "img/colecoes/rasteira-uso.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [
+    39
+   ],
+   "desc": "Rasteira de tiras finas douradas com anel no dedo. O mínimo que faz diferença no look.",
+   "detalhes": [
+    "Tiras metalizadas",
+    "Anel no dedo",
+    "Elástico no calcanhar",
+    "Sola flexível"
+   ],
+   "ordem": 5,
+   "novo": false,
+   "ativo": true
+  },
+  {
+   "id": "bolsa-meia-lua-camurca",
+   "nome": "Bolsa Meia-Lua Camurça",
+   "cat": "bolsas",
+   "preco": 459.9,
+   "nota": 4.8,
+   "aval": 29,
+   "estoque": "Em estoque",
+   "novo": true,
+   "img": "img/produtos/bolsa-meia-lua.jpg",
+   "tam": null,
+   "desc": "Bolsa de ombro em formato meia-lua, em camurça areia com corrente dourada. Leve e curvilínea.",
+   "detalhes": [
+    "Camurça",
+    "Alça de corrente dourada",
+    "Fecho em zíper",
+    "Medidas: 28 × 14 × 6 cm"
+   ],
+   "ordem": 6,
+   "esgot": [],
+   "uso": "",
+   "ativo": true
+  },
+  {
+   "id": "sandalia-verniz-corrente",
+   "nome": "Sandália Verniz Corrente",
+   "cat": "salto-fino",
+   "preco": 329.9,
+   "nota": 4.9,
+   "aval": 17,
+   "estoque": "Últimos 3 pares",
+   "img": "img/produtos/sandalia-verniz.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [
+    35,
+    38
+   ],
+   "desc": "Sandália de salto fino em verniz preto com corrente dourada no tornozelo. Um clássico com um detalhe que brilha.",
+   "detalhes": [
+    "Verniz",
+    "Salto fino de 10 cm",
+    "Corrente dourada no tornozelo",
+    "Fecho em fivela"
+   ],
+   "ordem": 7,
+   "novo": false,
+   "uso": "",
+   "ativo": true
+  },
+  {
+   "id": "mule-plataforma-off-white",
+   "nome": "Mule Plataforma Off-White",
+   "cat": "plataforma",
+   "preco": 369.9,
+   "nota": 4.6,
+   "aval": 24,
+   "estoque": "Em estoque",
+   "img": "img/produtos/mule-off-white.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [],
+   "desc": "Mule de plataforma tratorada em couro off-white. Calça em um segundo e muda o look inteiro.",
+   "detalhes": [
+    "Couro",
+    "Plataforma tratorada de 8 cm",
+    "Tira única frontal",
+    "Sola de borracha"
+   ],
+   "ordem": 8,
+   "novo": false,
+   "uso": "",
+   "ativo": true
+  },
+  {
+   "id": "anabela-cortica-caramelo",
+   "nome": "Anabela Cortiça Caramelo",
+   "cat": "anabela",
+   "preco": 299.9,
+   "nota": 4.7,
+   "aval": 31,
+   "estoque": "Em estoque",
+   "img": "img/produtos/anabela-cortica.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [],
+   "desc": "Anabela de cortiça com tiras cruzadas em couro caramelo. Leve, alta e confortável.",
+   "detalhes": [
+    "Tiras cruzadas em couro",
+    "Plataforma em cortiça de 10 cm",
+    "Sem fecho, calce fácil",
+    "Palmilha acolchoada"
+   ],
+   "ordem": 9,
+   "novo": false,
+   "uso": "",
+   "ativo": true
+  },
+  {
+   "id": "papete-nude-conforto",
+   "nome": "Papete Nude Conforto",
+   "cat": "papete",
+   "preco": 239.9,
+   "nota": 4.8,
+   "aval": 58,
+   "estoque": "Em estoque",
+   "img": "img/produtos/papete-nude.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [
+    34
+   ],
+   "desc": "Papete de tiras largas em couro nude sobre sola acolchoada. Para quem não abre mão do conforto.",
+   "detalhes": [
+    "Couro",
+    "Fivela ajustável",
+    "Sola acolchoada",
+    "Peso leve"
+   ],
+   "ordem": 10,
+   "novo": false,
+   "uso": "",
+   "ativo": true
+  },
+  {
+   "id": "rasteira-tiras-pretas",
+   "nome": "Rasteira Tiras Pretas",
+   "cat": "rasteira",
+   "preco": 169.9,
+   "nota": 4.7,
+   "aval": 42,
+   "estoque": "Em estoque",
+   "img": "img/produtos/rasteira-preta.jpg",
+   "tam": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "esgot": [],
+   "desc": "Rasteira de tiras finas cruzadas em couro preto. Vai com tudo, todos os dias.",
+   "detalhes": [
+    "Couro",
+    "Tiras cruzadas",
+    "Elástico no calcanhar",
+    "Sola flexível"
+   ],
+   "ordem": 11,
+   "novo": false,
+   "uso": "",
+   "ativo": true
+  }
+ ]
+}

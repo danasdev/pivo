@@ -18,6 +18,7 @@
   --gut:clamp(16px,4vw,64px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{background:var(--cream)}
 body{background:var(--cream);color:var(--rust);font-family:var(--body);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}

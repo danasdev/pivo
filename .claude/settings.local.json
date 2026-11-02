@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(\"/home/dk/.config/Claude/local-agent-mode-sessions/4c227187-6bf5-4084-bf1b-b105732a90d5/74df806f-cd12-4e61-bd63-7aba6f09ab3b/rpm/plugin_0111p175nQZkzPhjjcgPzhVb/skills/impeccable/scripts/impeccable\" context *)"
-    ]
-  }
-}

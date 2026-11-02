@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel — PIVÔ</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="adm">
+<header class="adm__top">
+  <a href="index.html" class="adm__logo" aria-label="Ver a loja"><svg viewBox="0 0 795 486" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M0 61h72a45 45 0 0 1 45 45v182a45 45 0 0 1-45 45H31v153H0Zm31 31v210h37a18 18 0 0 0 18-18V110a18 18 0 0 0-18-18Z"/><rect x="251" y="61" width="30" height="425"/><path d="M410 61h31l40 362 45-362h30l-56 425h-39Z"/><path fill-rule="evenodd" d="M677 121.5a58.5 58.5 0 0 1 117 0v306a58.5 58.5 0 0 1-117 0Zm31 1a27.5 27.5 0 0 1 55 0v304a27.5 27.5 0 0 1-55 0Z"/><path d="M690 37 722 3h28l32 34v6h-21l-25-26-25 26h-21Z"/></svg><span>Painel</span></a>
+  <nav class="adm__tabs" id="admTabs" hidden role="tablist" aria-label="Seções">
+    <button role="tab" aria-selected="true" data-aba="produtos">Produtos</button>
+    <button role="tab" aria-selected="false" data-aba="pedidos">Pedidos</button>
+  </nav>
+  <button class="link" id="sair" type="button" hidden>Sair</button>
+</header>
+
+<main class="adm__main">
+  <!-- acesso -->
+  <section id="login" class="adm__login" hidden>
+    <h1 class="duo"><span class="l1">Painel da loja.</span><span class="l2">Acesso restrito.</span></h1>
+    <form id="formLogin" class="f card-f" novalidate>
+      <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="username" required maxlength="120"></label>
+      <label class="field"><span>Senha</span><input name="senha" type="password" autocomplete="current-password" required maxlength="128"></label>
+      <p class="f__err" role="alert"></p>
+      <button class="btn" type="submit">Entrar</button>
+      <button class="btn btn--ghost" type="button" id="google">Entrar com Google</button>
+    </form>
+  </section>
+
+  <section id="semAcesso" hidden class="adm__login">
+    <h1 class="duo"><span class="l1">Sem acesso.</span><span class="l2">Esta conta não é administradora.</span></h1>
+    <p class="vazio" style="margin-top:18px">Peça para quem gerencia a loja liberar seu acesso.</p>
+  </section>
+
+  <!-- produtos -->
+  <section id="abaProdutos" hidden>
+    <div class="adm__bar"><h1 class="duo"><span class="l1">Produtos</span></h1>
+      <div class="adm__acts"><input type="search" id="busca" placeholder="Buscar peça" aria-label="Buscar peça"><button class="btn" id="novo" type="button">Novo produto</button></div></div>
+    <div class="tbl" role="region" aria-label="Lista de produtos" tabindex="0"><table>
+      <thead><tr><th>Peça</th><th>Categoria</th><th>Preço</th><th>Estoque</th><th>No site</th><th><span class="sr">Ações</span></th></tr></thead>
+      <tbody id="tbProdutos"><tr><td colspan="6" class="vazio">Carregando…</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <!-- pedidos -->
+  <section id="abaPedidos" hidden>
+    <div class="adm__bar"><h1 class="duo"><span class="l1">Pedidos</span></h1>
+      <label class="field adm__filtro"><span class="sr">Filtrar por situação</span>
+        <select id="filtroStatus"><option value="">Todas as situações</option><option value="novo">Recebidos</option><option value="confirmado">Confirmados</option><option value="enviado">Enviados</option><option value="entregue">Entregues</option><option value="cancelado">Cancelados</option></select></label></div>
+    <div id="listaPedidos" class="pedidos"><p class="vazio">Carregando…</p></div>
+  </section>
+</main>
+
+<!-- edição de produto -->
+<dialog id="dlg" class="adm__dlg" aria-labelledby="dlgTitulo">
+  <form id="formProd" class="f" novalidate method="dialog">
+    <div class="dlg__head"><h2 id="dlgTitulo">Novo produto</h2><button class="link" type="button" id="fechar" aria-label="Fechar">Fechar</button></div>
+    <div class="cols">
+      <label class="field"><span>Código (aparece no endereço)</span><input name="id" required pattern="[a-z0-9-]{3,80}" maxlength="80" aria-describedby="idDica"><small id="idDica" class="f__hint">Letras minúsculas, números e hífen. Ex.: scarpin-cetim-coral</small></label>
+      <label class="field"><span>Nome</span><input name="nome" required maxlength="120"></label>
+      <label class="field"><span>Categoria</span><select name="cat" id="selCat"></select></label>
+      <label class="field"><span>Preço (R$)</span><input name="preco" type="number" min="0.01" max="99999" step="0.01" inputmode="decimal" required></label>
+      <label class="field"><span>Aviso de estoque</span><input name="estoque" maxlength="60" placeholder="Em estoque, Últimos 3 pares…"></label>
+      <label class="field"><span>Ordem na vitrine</span><input name="ordem" type="number" min="0" max="9999" step="1"></label>
+      <label class="field"><span>Tamanhos (separados por vírgula)</span><input name="tam" placeholder="34, 35, 36, 37, 38, 39" maxlength="80"><small class="f__hint">Deixe vazio para bolsas.</small></label>
+      <label class="field"><span>Tamanhos esgotados</span><input name="esgot" placeholder="38" maxlength="80"></label>
+      <label class="field"><span>Nota (0 a 5)</span><input name="nota" type="number" min="0" max="5" step="0.1"></label>
+      <label class="field"><span>Nº de avaliações</span><input name="aval" type="number" min="0" max="100000" step="1"></label>
+    </div>
+    <label class="field"><span>Descrição</span><textarea name="desc" maxlength="1200"></textarea></label>
+    <label class="field"><span>Detalhes (um por linha)</span><textarea name="detalhes" maxlength="1500"></textarea></label>
+    <div class="cols">
+      <div class="field"><span>Foto principal</span><input name="img" maxlength="500" placeholder="img/produtos/foto.jpg"><input type="file" accept="image/jpeg,image/png,image/webp" data-up="img" aria-label="Enviar foto principal"></div>
+      <div class="field"><span>Foto em uso (hover)</span><input name="uso" maxlength="500" placeholder="opcional"><input type="file" accept="image/jpeg,image/png,image/webp" data-up="uso" aria-label="Enviar foto em uso"></div>
+    </div>
+    <div class="checks">
+      <label><input type="checkbox" name="novo"> Marcar como novo</label>
+      <label><input type="checkbox" name="ativo" checked> Mostrar no site</label>
+    </div>
+    <p class="f__err" id="prodErr" role="alert"></p>
+    <div class="dlg__acts"><button class="link perigo" type="button" id="apagar">Excluir produto</button><button class="btn" type="submit" id="salvar">Salvar</button></div>
+  </form>
+</dialog>
+
+<script src="js/util.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

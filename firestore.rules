@@ -1,0 +1,104 @@
+rules_version = '2';
+
+// Regras do banco da PIVÔ. É AQUI que os dados ficam protegidos — não no front.
+// Publicar: firebase deploy --only firestore:rules
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() { return request.auth != null; }
+    function dono(uid) { return logado() && request.auth.uid == uid; }
+    // administrador = conta com a "custom claim" admin == true (definida só pelo scripts/set-admin.mjs)
+    function admin() { return logado() && request.auth.token.admin == true; }
+    function urlImagem(u) {
+      return u is string && u.size() <= 500
+        && u.matches('^(img/[A-Za-z0-9_./-]+|https://firebasestorage[.]googleapis[.]com/.+)$')
+        && !u.matches('.*[.][.].*');
+    }
+
+    // ---------- catálogo: qualquer pessoa lê, só admin escreve ----------
+    function produtoValido(d) {
+      return d.keys().hasOnly(['nome', 'cat', 'preco', 'estoque', 'ordem', 'tam', 'esgot', 'nota', 'aval',
+                               'desc', 'detalhes', 'img', 'uso', 'novo', 'ativo', 'atualizadoEm'])
+        && d.keys().hasAll(['nome', 'cat', 'preco', 'img', 'ativo'])
+        && d.nome is string && d.nome.size() > 0 && d.nome.size() <= 120
+        && d.cat in ['bolsas', 'salto-fino', 'plataforma', 'anabela', 'papete', 'rasteira']
+        && d.preco is number && d.preco > 0 && d.preco < 100000
+        && urlImagem(d.img)
+        && d.ativo is bool
+        && (!('uso' in d) || (d.uso == '' || urlImagem(d.uso)))
+        && (!('estoque' in d) || (d.estoque is string && d.estoque.size() <= 60))
+        && (!('ordem' in d) || (d.ordem is int && d.ordem >= 0))
+        && (!('tam' in d) || (d.tam is list && d.tam.size() <= 20))
+        && (!('esgot' in d) || (d.esgot is list && d.esgot.size() <= 20))
+        && (!('nota' in d) || (d.nota is number && d.nota >= 0 && d.nota <= 5))
+        && (!('aval' in d) || (d.aval is int && d.aval >= 0))
+        && (!('desc' in d) || (d.desc is string && d.desc.size() <= 1200))
+        && (!('detalhes' in d) || (d.detalhes is list && d.detalhes.size() <= 12))
+        && (!('novo' in d) || (d.novo is bool))
+        && (!('atualizadoEm' in d) || (d.atualizadoEm is timestamp));
+    }
+    match /produtos/{id} {
+      allow read: if true;
+      allow create, update: if admin() && id.matches('^[a-z0-9-]{3,80}$') && produtoValido(request.resource.data);
+      allow delete: if admin();
+    }
+    match /categorias/{slug} {
+      allow read: if true;
+      allow write: if admin()
+        && request.resource.data.keys().hasOnly(['nome', 'desc', 'ordem'])
+        && request.resource.data.nome is string && request.resource.data.nome.size() <= 60;
+    }
+
+    // ---------- conta: cada pessoa só vê e mexe na própria ----------
+    function usuarioValido(d) {
+      return d.keys().hasOnly(['nome', 'favoritos', 'sacola', 'atualizado', 'ultimoPedido'])
+        && (!('nome' in d) || (d.nome is string && d.nome.size() <= 80))
+        && (!('favoritos' in d) || (d.favoritos is list && d.favoritos.size() <= 200))
+        && (!('sacola' in d) || (d.sacola is list && d.sacola.size() <= 30))
+        && (!('atualizado' in d) || (d.atualizado is timestamp))
+        && (!('ultimoPedido' in d) || (d.ultimoPedido is timestamp));
+    }
+    match /usuarios/{uid} {
+      allow get: if dono(uid) || admin();
+      allow list: if admin();
+      allow create: if dono(uid) && usuarioValido(request.resource.data)
+        && (!('ultimoPedido' in request.resource.data) || (request.resource.data.ultimoPedido == request.time));
+      // "ultimoPedido" só anda para a hora do servidor, e no máximo 1 vez por minuto (antispam de pedidos)
+      allow update: if dono(uid) && usuarioValido(request.resource.data)
+        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['ultimoPedido'])
+            || (request.resource.data.ultimoPedido == request.time
+                && (!('ultimoPedido' in resource.data)
+                    || request.time > resource.data.ultimoPedido + duration.value(60, 's'))));
+      allow delete: if dono(uid);
+    }
+
+    // ---------- pedidos: a cliente envia só ids, tamanhos e quantidades ----------
+    // Nenhum preço vem do navegador: a loja recalcula pelo catálogo no painel.
+    match /pedidos/{id} {
+      allow get, list: if admin() || (logado() && resource.data.uid == request.auth.uid);
+      allow create: if logado()
+        && request.auth.token.email_verified == true
+        && request.resource.data.keys().hasOnly(['uid', 'itens', 'nome', 'email', 'obs', 'status', 'criadoEm'])
+        && request.resource.data.keys().hasAll(['uid', 'itens', 'status', 'criadoEm'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'novo'
+        && request.resource.data.criadoEm == request.time
+        && request.resource.data.itens is list
+        && request.resource.data.itens.size() > 0 && request.resource.data.itens.size() <= 20
+        && (!('nome' in request.resource.data) || (request.resource.data.nome is string && request.resource.data.nome.size() <= 80))
+        && (!('email' in request.resource.data) || (request.resource.data.email == request.auth.token.email))
+        && (!('obs' in request.resource.data) || (request.resource.data.obs is string && request.resource.data.obs.size() <= 500))
+        // o mesmo lote precisa marcar ultimoPedido = agora na conta (e a regra de usuarios limita a 1 por minuto)
+        && getAfter(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.ultimoPedido == request.time;
+      allow update: if admin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'atualizadoEm'])
+        && request.resource.data.status in ['novo', 'confirmado', 'enviado', 'entregue', 'cancelado'];
+      allow delete: if false;
+    }
+
+    // ---------- todo o resto: fechado ----------
+    match /{doc=**} {
+      allow read, write: if false;
+    }
+  }
+}

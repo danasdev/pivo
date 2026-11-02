@@ -26,6 +26,15 @@
         ],
         "createdAt": "2026-11-01T23:27:51.300Z",
         "reason": "false positive: full-bleed sections (.colecoes, .essencia) have 88px+ padding; detector flags section wrappers, verified in captures"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/admin.html"
+        ],
+        "createdAt": "2026-11-02T01:21:22.964Z",
+        "reason": "false positive: .tbl border wraps a table whose cells have 14-16px padding; verified in capture"
       }
     ]
   }
