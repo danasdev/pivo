@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<title>PIVÔ — Home Mobile</title>
+<style>
+{{fonts}}
+:root{
+  --ink:#0A0A0A; --ink-2:#141414; --ink-3:#1E1E1E;
+  --coral:#E8714D; --gold:#D4AF37; --gold-line:rgba(212,175,55,.35);
+  --white:#FFFFFF; --grey:#B0B0B0; --paper:#FAFAF8; --ink-soft:#3A3A3A;
+  --head:'Montserrat',sans-serif; --body:'Poppins',sans-serif; --serif:'Bodoni Moda',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#2a2a2a;font-family:var(--body);color:var(--white)}
+.screen{width:390px;background:var(--ink);position:relative;overflow:hidden}
+a{color:inherit;text-decoration:none}
+.ico{width:22px;height:22px;display:block}
+
+.nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid var(--gold-line)}
+.nav img{height:22px;display:block}
+.nav .r{display:flex;gap:6px}
+.tap{width:44px;height:44px;display:flex;align-items:center;justify-content:center;position:relative}
+.tap b{position:absolute;top:6px;right:5px;width:18px;height:18px;border-radius:50%;background:var(--coral);color:var(--ink);font:700 11px/18px var(--head);text-align:center}
+
+.hero{position:relative;padding:28px 16px 0;background:radial-gradient(ellipse 90% 40% at 50% 52%,#1d1612 0%,var(--ink) 75%)}
+.hero h1{font:700 50px/.92 var(--head);letter-spacing:-.035em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .c{color:var(--coral)}
+.stage{position:relative;height:350px;margin:4px -16px 0}
+.stage img{position:absolute;left:20px;top:0;width:350px;height:350px;object-fit:cover;-webkit-mask-image:radial-gradient(circle,#000 58%,transparent 72%);mask-image:radial-gradient(circle,#000 58%,transparent 72%)}
+.ring{position:absolute;left:30px;top:268px;width:330px;height:76px;border:1px solid var(--gold);border-radius:50%;opacity:.7}
+.dot{position:absolute;left:352px;top:298px;width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(232,113,77,.18)}
+.drag{display:flex;justify-content:center;align-items:center;gap:8px;font:500 11px/1 var(--head);letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-top:2px}
+.drag .ico{width:16px;height:16px}
+.tag{margin-top:26px;font:italic 400 26px/1.2 var(--serif)}
+.hero p{margin-top:10px;font:400 15px/1.6 var(--body);color:var(--grey)}
+.btn{display:flex;align-items:center;justify-content:center;height:56px;background:var(--coral);color:var(--ink);font:700 13px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;border-radius:2px;margin-top:24px}
+.link{display:inline-flex;align-items:center;gap:10px;font:700 12px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;padding:16px 0 8px;border-bottom:1px solid var(--gold)}
+.link .ico{width:16px;height:16px}
+.center{text-align:center}
+
+.buy{margin:32px 0 0;padding:18px 0 22px;border-top:1px solid var(--gold-line)}
+.buy .top{display:flex;justify-content:space-between;align-items:baseline}
+.buy .nm{font:500 14px/1.3 var(--body)}
+.buy .pr{font:600 15px/1 var(--head);color:var(--gold)}
+.sizes{display:flex;gap:6px;margin-top:14px}
+.sz{width:48px;height:48px;border:1px solid #3a3a3a;display:flex;align-items:center;justify-content:center;font:500 14px/1 var(--body);flex:none}
+.sz.on{border-color:var(--gold);color:var(--gold)}
+.sz.off{color:#555;text-decoration:line-through}
+.btn-o{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;margin-top:14px;border:1px solid var(--gold);color:var(--gold);font:700 12px/1 var(--head);letter-spacing:.16em;text-transform:uppercase}
+.btn-o .ico{width:18px;height:18px}
+
+.sec{padding:88px 0 0}
+.head{padding:0 16px 18px;margin:0 16px 22px;padding-left:0;padding-right:0;border-bottom:1px solid var(--gold-line);display:flex;align-items:flex-end;justify-content:space-between}
+.head h2{font:700 32px/1 var(--head);letter-spacing:-.02em;text-transform:uppercase}
+.head .sub{font:italic 400 19px/1.2 var(--serif);color:var(--grey);margin-top:10px}
+.scroller{display:flex;gap:12px;padding-left:16px;width:390px;overflow:hidden}
+.card{position:relative;width:258px;height:340px;flex:none;background:var(--ink-2);overflow:hidden}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .shade{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(to top,rgba(10,10,10,.92),rgba(10,10,10,0))}
+.card .cap{position:absolute;left:20px;right:20px;bottom:20px;display:flex;align-items:flex-end;justify-content:space-between}
+.card h3{font:700 20px/1 var(--head);letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.card .n{font:400 12px/1 var(--body);color:var(--grey);margin-top:8px}
+.go{width:44px;height:44px;border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.go .ico{width:18px;height:18px}
+.chips{display:flex;gap:8px;padding:0 16px;margin-bottom:18px;width:390px;overflow:hidden}
+.chip{height:40px;padding:0 16px;border:1px solid #333;display:flex;align-items:center;font:600 11px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--grey);flex:none;border-radius:20px}
+.chip.on{border-color:var(--gold);color:var(--gold)}
+.dots{display:flex;gap:6px;padding:20px 16px 0}
+.dots i{width:6px;height:6px;border-radius:3px;background:#333;display:block}
+.dots i.on{width:22px;background:var(--gold)}
+
+.ess{margin-top:96px;background:var(--paper);color:var(--ink)}
+.ess .pic{height:440px;overflow:hidden}
+.ess .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 72%}
+.ess .txt{padding:44px 16px 56px}
+.ess blockquote{font:italic 400 40px/1.08 var(--serif);letter-spacing:-.01em}
+.ess blockquote em{color:#B9503A}
+.ess p{margin-top:22px;font:400 16px/1.65 var(--body);color:var(--ink-soft)}
+.ess .link{color:var(--ink);border-bottom:2px solid var(--gold);margin-top:14px}
+
+.prod{width:220px;flex:none}
+.prod .ph{position:relative;width:220px;height:270px;background:var(--ink-2);overflow:hidden}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:12px;top:12px;height:24px;padding:0 9px;background:var(--coral);color:var(--ink);font:700 11px/24px var(--head);letter-spacing:.16em}
+.badge.hot{background:var(--ink);color:var(--coral);border:1px solid var(--coral);line-height:22px}
+.fav{position:absolute;right:6px;top:6px;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.fav span{width:34px;height:34px;border-radius:50%;background:rgba(10,10,10,.6);display:flex;align-items:center;justify-content:center}
+.fav .ico{width:17px;height:17px}
+.plus{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center}
+.plus .ico{width:20px;height:20px}
+.prod .meta{padding-top:14px}
+.prod .nm{font:400 14px/1.4 var(--body)}
+.prod .line{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.prod .pr{font:600 16px/1 var(--head);color:var(--gold)}
+.stars{display:flex;align-items:center;gap:2px;font:400 11px/1 var(--body);color:var(--grey)}
+.stars svg{width:11px;height:11px}
+.stars span{margin-left:4px}
+.stock{margin-top:8px;font:400 12px/1 var(--body);color:var(--grey);display:flex;align-items:center;gap:7px}
+.stock i{width:6px;height:6px;border-radius:50%;background:var(--coral);display:block}
+
+.tst{padding:96px 16px 0;text-align:center}
+.tst .head{margin:0 0 36px;text-align:left;display:block}
+.st{display:flex;gap:5px;justify-content:center}
+.st svg{width:18px;height:18px}
+.tst q{display:block;margin-top:22px;font:italic 400 28px/1.28 var(--serif);quotes:none}
+.who{margin-top:22px;font:500 11px/1.6 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.who b{color:var(--white)}
+.people{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:32px}
+.av{width:44px;height:44px;border-radius:50%;background:var(--ink-3);display:flex;align-items:center;justify-content:center;font:700 15px/1 var(--head);color:var(--grey)}
+.av.on{width:56px;height:56px;border:1px solid var(--gold);background:#231c14;color:var(--gold);font-size:18px}
+
+.final{margin-top:96px;background:var(--coral);color:var(--ink);padding:64px 16px 56px}
+.final h2{font:700 44px/.95 var(--head);letter-spacing:-.03em;text-transform:uppercase}
+.final .btn{background:var(--ink);color:var(--white);margin-top:34px;height:60px}
+.wa{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;height:48px;font:500 15px/1 var(--body);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.wa .ico{width:20px;height:20px}
+
+.foot{padding:56px 16px 24px}
+.foot img{height:28px}
+.foot .tagl{margin-top:14px;font:italic 400 20px/1.3 var(--serif);color:var(--grey)}
+.acc{margin-top:36px;border-top:1px solid #222}
+.acc div{height:56px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;font:700 12px/1 var(--head);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.acc .ico{width:18px;height:18px}
+.legal{padding:24px 0 0;font:400 12px/1.6 var(--body);color:#7a7a7a}
+
+.tabbar{height:76px;background:rgba(10,10,10,.96);border-top:1px solid var(--gold-line);display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px;margin-top:40px}
+.tb{width:64px;display:flex;flex-direction:column;align-items:center;gap:6px;font:500 11px/1 var(--head);letter-spacing:.06em;color:var(--grey);position:relative}
+.tb.on{color:var(--coral)}
+.tb b{position:absolute;top:-4px;right:12px;width:18px;height:18px;border-radius:50%;background:var(--coral);color:var(--ink);font:700 11px/18px var(--head);text-align:center}
+</style>
+</head>
+<body>
+<div class="screen" id="mobile">
+  <header class="nav">
+    <img src="{{img:logo-coral.png}}" alt="PIVÔ">
+    <div class="r">
+      <span class="tap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <span class="tap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b>2</b></span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><span>Seu estilo</span><span class="c">te move</span></h1>
+    <div class="stage">
+      <div class="ring"></div>
+      <img src="{{img:hero.jpg}}" alt="Plataforma Caramelo em couro">
+      <div class="dot"></div>
+    </div>
+    <div class="drag"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>Deslize para girar 360°</div>
+    <div class="tag">Descubra as novas coleções.</div>
+    <p>Plataformas, saltos, rasteiras e bolsas escolhidos a dedo para quem não para.</p>
+    <a class="btn">Explorar agora</a>
+    <div class="center"><a class="link">Ver coleção <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a></div>
+    <div class="buy">
+      <div class="top"><span class="nm">Plataforma Caramelo · couro</span><span class="pr">R$ 389,90</span></div>
+      <div class="sizes"><span class="sz">34</span><span class="sz">35</span><span class="sz on">36</span><span class="sz">37</span><span class="sz off">38</span><span class="sz">39</span></div>
+      <a class="btn-o"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Adicionar à sacola</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="head"><div><h2>O ritual Pivô</h2><div class="sub">Cada estilo, uma história.</div></div></div>
+    <div class="chips"><span class="chip on">Todos</span><span class="chip">Bolsas</span><span class="chip">Salto fino</span><span class="chip">Plataforma</span><span class="chip">Anabela</span></div>
+    <div class="scroller">
+      {{card:bolsa.jpg|Bolsas|42 peças}}
+      {{card:salto.jpg|Salto fino|28 peças}}
+      {{card:plataforma.jpg|Plataforma|35 peças}}
+    </div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="ess">
+    <div class="pic"><img src="{{img:editorial.jpg}}" alt="Mulher caminhando de plataforma caramelo"></div>
+    <div class="txt">
+      <blockquote>Um estilo é uma assinatura. <em>A sua começa aqui.</em></blockquote>
+      <p>Cada peça da PIVÔ é cuidadosamente selecionada para marcar seu passo no mundo.</p>
+      <a class="link">Conhecer o processo <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="head"><div><h2>Novas chegadas</h2><div class="sub">As tendências que você procura.</div></div></div>
+    <div class="scroller">
+      {{prod:sandalia-verniz.jpg|NOVO||Sandália Verniz Corrente|R$ 329,90|4,9|Últimos 3 pares}}
+      {{prod:bolsa-meia-lua.jpg|HOT|hot|Bolsa Meia-Lua Camurça|R$ 459,90|4,8|Em estoque}}
+      {{prod:salto.jpg|NOVO||Scarpin Cetim Coral|R$ 349,90|4,7|Em estoque}}
+    </div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="tst">
+    <div class="head"><h2>Quem passou pelo estilo</h2><div class="sub">O que dizem sobre a PIVÔ.</div></div>
+    <div class="st">{{star}}{{star}}{{star}}{{star}}{{star}}</div>
+    <q>“Impecável! Estilo e qualidade que eu não encontrava. Usei a plataforma o dia inteiro e terminei sem reclamar.”</q>
+    <div class="who"><b>Beatriz S.</b> · Outubro 2026</div>
+    <div class="people"><div class="av">M</div><div class="av">L</div><div class="av on">B</div><div class="av">C</div><div class="av">R</div></div>
+  </section>
+
+  <section class="final">
+    <h2>Pronto para encontrar seu estilo?</h2>
+    <a class="btn">Explorar catálogo completo</a>
+    <a class="wa"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1Z"/><path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1-.6 1.6c-3.8 0-8.5-4.7-8.5-8.5l1.6-.6 1 2L9 9.5Z"/></svg>ou fale com a gente via WhatsApp</a>
+  </section>
+
+  <footer class="foot">
+    <img src="{{img:logo-coral.png}}" alt="PIVÔ">
+    <div class="tagl">Seu estilo te move.</div>
+    <div class="acc">
+      <div>Loja {{chev}}</div><div>Ajuda {{chev}}</div><div>Siga {{chev}}</div>
+    </div>
+    <div class="legal">© 2026 PIVÔ. Todos os direitos reservados.</div>
+  </footer>
+
+  <nav class="tabbar">
+    <span class="tb on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#E8714D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4v-9Z"/></svg>Início</span>
+    <span class="tb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>Categorias</span>
+    <span class="tb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</span>
+    <span class="tb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"/></svg>Favoritos</span>
+    <span class="tb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Sacola<b>2</b></span>
+  </nav>
+</div>
+</body>
+</html>

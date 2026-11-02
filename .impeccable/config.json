@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-11-01T20:13:49.292Z",
+        "reason": "client brief pins Montserrat Bold for headlines (briefingpivo.md)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/mobile.src.html"
+        ],
+        "createdAt": "2026-11-01T20:13:49.315Z",
+        "reason": "footer accordion top divider, rows have their own 56px height; not a container"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-01T23:27:51.300Z",
+        "reason": "false positive: full-bleed sections (.colecoes, .essencia) have 88px+ padding; detector flags section wrappers, verified in captures"
+      }
+    ]
+  }
+}

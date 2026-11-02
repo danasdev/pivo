@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PIVÔ — Home Desktop</title>
+<style>
+{{fonts}}
+:root{
+  --ink:#0A0A0A; --ink-2:#141414; --ink-3:#1E1E1E;
+  --coral:#E8714D; --gold:#D4AF37; --gold-line:rgba(212,175,55,.35);
+  --white:#FFFFFF; --grey:#B0B0B0; --paper:#FAFAF8; --ink-soft:#3A3A3A;
+  --head:'Montserrat',sans-serif; --body:'Poppins',sans-serif; --serif:'Bodoni Moda',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#2a2a2a;font-family:var(--body);color:var(--white)}
+.screen{width:1440px;background:var(--ink);position:relative;overflow:hidden}
+.wrap{width:1280px;margin:0 auto}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 80px;border-bottom:1px solid var(--gold-line);background:var(--ink);position:relative;z-index:5}
+.nav img{height:30px;display:block}
+.menu{display:flex;gap:34px}
+.menu a{font:600 12px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.menu a.on{color:var(--white);padding-bottom:6px;border-bottom:1px solid var(--gold)}
+.tools{display:flex;gap:26px;align-items:center}
+.ico{width:22px;height:22px;display:block}
+.bag{position:relative}
+.bag b{position:absolute;top:-7px;right:-9px;width:18px;height:18px;border-radius:50%;background:var(--coral);color:var(--ink);font:700 11px/18px var(--head);text-align:center}
+
+/* HERO */
+.hero{position:relative;height:816px;background:radial-gradient(ellipse 60% 55% at 70% 48%,#1d1612 0%,var(--ink) 70%)}
+.hero h1{position:absolute;left:80px;top:96px;font:700 120px/.9 var(--head);letter-spacing:-.035em;text-transform:uppercase;z-index:3}
+.hero h1 span{display:block}
+.hero h1 .c{color:var(--coral)}
+.shoe{position:absolute;left:716px;top:24px;width:660px;height:660px;z-index:2}
+.shoe img{width:100%;height:100%;object-fit:cover;display:block;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%);mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%)}
+.ring{position:absolute;left:736px;top:520px;width:620px;height:136px;border:1px solid var(--gold);border-radius:50%;opacity:.7;z-index:1}
+.ring-dot{position:absolute;left:1338px;top:574px;width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 6px rgba(232,113,77,.18);z-index:3}
+.drag{position:absolute;left:1046px;top:676px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;font:500 11px/1 var(--head);letter-spacing:.2em;text-transform:uppercase;color:var(--grey);z-index:3}
+.drag .ico{width:18px;height:18px}
+.lede{position:absolute;left:80px;top:380px;width:460px;z-index:3}
+.lede .tag{font:italic 400 34px/1.2 var(--serif);color:var(--white)}
+.lede p{margin-top:18px;font:400 16px/1.65 var(--body);color:var(--grey);max-width:400px}
+.ctas{position:absolute;left:80px;top:556px;display:flex;align-items:center;gap:36px;z-index:3}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 34px;background:var(--coral);color:var(--ink);font:700 13px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;border-radius:2px}
+.link{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--white);padding-bottom:8px;border-bottom:1px solid var(--gold)}
+.link .ico{width:16px;height:16px}
+
+.strip{position:absolute;left:80px;right:80px;bottom:0;height:104px;border-top:1px solid var(--gold-line);display:flex;align-items:center;justify-content:space-between;z-index:3}
+.pick{display:flex;align-items:center;gap:20px}
+.pick .thumb{width:60px;height:60px;border:1px solid var(--gold-line);overflow:hidden}
+.pick .thumb img{width:100%;height:100%;object-fit:cover}
+.pick .nm{font:500 15px/1.3 var(--body)}
+.pick .pr{font:600 15px/1.3 var(--head);color:var(--gold);margin-top:4px}
+.sizes{display:flex;align-items:center;gap:8px}
+.sizes .lbl{font:600 11px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-right:10px}
+.sz{width:44px;height:44px;border:1px solid #3a3a3a;display:flex;align-items:center;justify-content:center;font:500 14px/1 var(--body);color:var(--white)}
+.sz.on{border-color:var(--gold);color:var(--gold)}
+.sz.off{color:#555;text-decoration:line-through}
+.btn-o{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 28px;border:1px solid var(--gold);color:var(--gold);font:700 12px/1 var(--head);letter-spacing:.16em;text-transform:uppercase}
+.btn-o .ico{width:18px;height:18px}
+
+/* SECTION HEADS */
+.sec{padding:140px 0 0}
+.head{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:28px;border-bottom:1px solid var(--gold-line);margin-bottom:40px}
+.head h2{font:700 56px/1 var(--head);letter-spacing:-.025em;text-transform:uppercase}
+.head .sub{font:italic 400 28px/1 var(--serif);color:var(--grey)}
+
+/* COLLECTIONS */
+.grid{display:grid;grid-template-columns:repeat(4,308px);grid-template-rows:440px 440px;gap:16px}
+.card{position:relative;overflow:hidden;background:var(--ink-2)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card.w2{grid-column:span 2}
+.card .shade{position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(to top,rgba(10,10,10,.92),rgba(10,10,10,0))}
+.card .cap{position:absolute;left:28px;right:28px;bottom:26px;display:flex;align-items:flex-end;justify-content:space-between}
+.card h3{font:700 22px/1 var(--head);letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.card .n{font:400 13px/1 var(--body);color:var(--grey);margin-top:10px}
+.card .go{width:44px;height:44px;border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.card .go .ico{width:18px;height:18px}
+.card.hover{outline:1px solid var(--gold);outline-offset:-1px}
+.card.hover img{transform:scale(1.06)}
+.card.hover .go{background:var(--coral);border-color:var(--coral)}
+.card.big h3{font-size:30px}
+
+/* ESSENCE */
+.ess{margin-top:160px;background:var(--paper);color:var(--ink);display:flex;min-height:820px}
+.ess .pic{width:620px;height:820px;flex:none;overflow:hidden}
+.ess .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.ess .txt{padding:150px 80px 120px 110px;flex:1}
+.ess blockquote{font:italic 400 66px/1.08 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.ess blockquote em{font-style:italic;color:#B9503A}
+.ess p{margin-top:40px;font:400 19px/1.65 var(--body);color:var(--ink-soft);max-width:470px}
+.ess .link{color:var(--ink);margin-top:48px;border-bottom:2px solid var(--gold)}
+.ess .facts{display:flex;gap:56px;margin-top:84px;padding-top:28px;border-top:1px solid rgba(10,10,10,.14)}
+.ess .facts div{font:400 14px/1.5 var(--body);color:var(--ink-soft);max-width:160px}
+.ess .facts b{display:block;font:700 13px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+
+/* ARRIVALS */
+.arrows{display:flex;gap:12px}
+.arw{width:52px;height:52px;border-radius:50%;border:1px solid #3a3a3a;display:flex;align-items:center;justify-content:center}
+.arw.on{background:var(--coral);border-color:var(--coral)}
+.arw .ico{width:20px;height:20px}
+.rail{display:flex;gap:20px;width:1440px;padding-left:80px}
+.prod{width:296px;flex:none}
+.prod .ph{position:relative;width:296px;height:360px;background:var(--ink-2);overflow:hidden}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:16px;top:16px;height:26px;padding:0 10px;background:var(--coral);color:var(--ink);font:700 11px/26px var(--head);letter-spacing:.16em}
+.badge.hot{background:var(--ink);color:var(--coral);border:1px solid var(--coral);line-height:24px}
+.fav{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;background:rgba(10,10,10,.6);display:flex;align-items:center;justify-content:center}
+.fav .ico{width:18px;height:18px}
+.prod .quick{position:absolute;left:0;right:0;bottom:0;padding:16px;background:rgba(10,10,10,.94);border-top:1px solid var(--gold-line)}
+.prod .quick .row{display:flex;gap:6px;margin-bottom:12px}
+.prod .quick .sz{width:38px;height:38px;font-size:13px}
+.prod .quick .add{height:44px;background:var(--coral);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:10px;font:700 12px/1 var(--head);letter-spacing:.16em;text-transform:uppercase}
+.prod .quick .add .ico{width:16px;height:16px}
+.prod .meta{padding-top:18px}
+.prod .nm{font:400 15px/1.4 var(--body);color:var(--white)}
+.prod .line{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.prod .pr{font:600 18px/1 var(--head);color:var(--gold)}
+.stars{display:flex;align-items:center;gap:3px;font:400 12px/1 var(--body);color:var(--grey)}
+.stars svg{width:13px;height:13px}
+.stars span{margin-left:6px}
+.stock{margin-top:10px;font:400 12px/1 var(--body);color:var(--grey);display:flex;align-items:center;gap:8px}
+.stock i{width:6px;height:6px;border-radius:50%;background:var(--coral);display:block}
+.progress{width:1280px;margin:44px auto 0;height:1px;background:#2a2a2a;position:relative}
+.progress i{position:absolute;left:0;top:-1px;width:420px;height:3px;background:var(--gold)}
+
+/* TESTIMONIALS */
+.tst{padding:150px 0 0;text-align:center}
+.tst .head{text-align:left}
+.quote{width:900px;margin:76px auto 0}
+.quote .st{display:flex;gap:6px;justify-content:center}
+.quote .st svg{width:22px;height:22px}
+.quote q{display:block;margin-top:34px;font:italic 400 46px/1.25 var(--serif);color:var(--white);quotes:none}
+.quote .who{margin-top:34px;font:500 13px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.quote .who b{color:var(--white);font-weight:700}
+.people{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:56px}
+.av{width:56px;height:56px;border-radius:50%;background:var(--ink-3);display:flex;align-items:center;justify-content:center;font:700 18px/1 var(--head);color:var(--grey)}
+.av.on{width:72px;height:72px;border:1px solid var(--gold);background:#231c14;color:var(--gold);font-size:22px}
+.tst .arrows{justify-content:center;margin-top:48px}
+
+/* FINAL CTA */
+.final{margin-top:170px;background:var(--coral);color:var(--ink);padding:120px 80px 110px;position:relative}
+.final h2{font:700 96px/.94 var(--head);letter-spacing:-.035em;text-transform:uppercase;max-width:1100px}
+.final .row{display:flex;align-items:center;gap:44px;margin-top:64px}
+.final .btn{background:var(--ink);color:var(--white);height:64px;padding:0 40px;font-size:14px}
+.final .wa{display:flex;align-items:center;gap:12px;font:500 17px/1 var(--body);color:var(--ink);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+.final .wa .ico{width:22px;height:22px}
+.final .mark{position:absolute;right:80px;bottom:110px;font:italic 400 30px/1 var(--serif);color:var(--ink)}
+
+/* FOOTER */
+.foot{padding:90px 80px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot img{height:38px}
+.foot .tagl{margin-top:22px;font:italic 400 22px/1.3 var(--serif);color:var(--grey)}
+.foot h4{font:700 12px/1 var(--head);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.foot li{list-style:none;font:400 15px/2.1 var(--body);color:var(--grey)}
+.legal{margin:0 80px;padding:28px 0 40px;border-top:1px solid #222;display:flex;justify-content:space-between;font:400 13px/1 var(--body);color:#7a7a7a}
+</style>
+</head>
+<body>
+<div class="screen" id="desktop">
+
+  <header class="nav">
+    <img src="{{img:logo-coral.png}}" alt="PIVÔ">
+    <nav class="menu">
+      <a class="on">Novidades</a><a>Bolsas</a><a>Anabela</a><a>Papete</a><a>Plataforma</a><a>Rasteira</a><a>Salto Fino</a>
+    </nav>
+    <div class="tools">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"/></svg>
+      <div class="bag"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b>2</b></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><span>Seu estilo</span><span class="c">te move</span></h1>
+    <div class="ring"></div>
+    <div class="shoe"><img src="{{img:hero.jpg}}" alt="Plataforma Caramelo em couro, vista 3/4"></div>
+    <div class="ring-dot"></div>
+    <div class="drag">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>
+      Arraste para girar 360°
+    </div>
+    <div class="lede">
+      <div class="tag">Descubra as novas coleções.</div>
+      <p>Plataformas, saltos, rasteiras e bolsas escolhidos a dedo para quem não para.</p>
+    </div>
+    <div class="ctas">
+      <a class="btn">Explorar agora</a>
+      <a class="link">Ver coleção <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
+    </div>
+    <div class="strip">
+      <div class="pick">
+        <div class="thumb"><img src="{{img:hero.jpg}}" alt=""></div>
+        <div><div class="nm">Plataforma Caramelo · couro</div><div class="pr">R$ 389,90</div></div>
+      </div>
+      <div class="sizes">
+        <span class="lbl">Tamanho</span>
+        <span class="sz">34</span><span class="sz">35</span><span class="sz on">36</span><span class="sz">37</span><span class="sz off">38</span><span class="sz">39</span>
+      </div>
+      <a class="btn-o"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Adicionar à sacola</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><h2>O ritual Pivô</h2><div class="sub">Cada estilo, uma história.</div></div>
+      <div class="grid">
+        <a class="card w2 big"><img src="{{img:bolsa.jpg}}" alt="Bolsa estruturada terracota" style="object-position:50% 40%"><div class="shade"></div><div class="cap"><div><h3>Bolsas</h3><div class="n">42 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+        <a class="card hover"><img src="{{img:salto.jpg}}" alt="Scarpin coral salto fino"><div class="shade"></div><div class="cap"><div><h3>Salto fino</h3><div class="n">28 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+        <a class="card"><img src="{{img:plataforma.jpg}}" alt="Mule plataforma off-white"><div class="shade"></div><div class="cap"><div><h3>Plataforma</h3><div class="n">35 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+        <a class="card"><img src="{{img:anabela.jpg}}" alt="Anabela de juta"><div class="shade"></div><div class="cap"><div><h3>Anabela</h3><div class="n">19 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+        <a class="card"><img src="{{img:papete.jpg}}" alt="Papete de couro preto"><div class="shade"></div><div class="cap"><div><h3>Papete</h3><div class="n">23 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+        <a class="card w2 big"><img src="{{img:rasteira.jpg}}" alt="Rasteira dourada" style="object-position:50% 50%"><div class="shade"></div><div class="cap"><div><h3>Rasteira</h3><div class="n">31 peças</div></div><div class="go"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ess">
+    <div class="pic"><img src="{{img:editorial.jpg}}" alt="Mulher caminhando de plataforma caramelo"></div>
+    <div class="txt">
+      <blockquote>Um estilo é uma assinatura. <em>A sua começa aqui.</em></blockquote>
+      <p>Cada peça da PIVÔ é cuidadosamente selecionada para marcar seu passo no mundo.</p>
+      <a class="link">Conhecer o processo <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></a>
+      <div class="facts">
+        <div><b>Curadoria</b>Peças escolhidas uma a uma, por tendência e conforto.</div>
+        <div><b>Atendimento</b>Dúvida de tamanho? A gente responde no WhatsApp.</div>
+              </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><div style="display:flex;align-items:flex-end;gap:40px"><h2>Novas chegadas</h2><div class="sub">As tendências que você procura.</div></div>
+        <div class="arrows">
+          <div class="arw"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="m10 6-6 6 6 6"/></svg></div>
+          <div class="arw on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div class="rail">
+      {{prod:sandalia-verniz.jpg|NOVO||Sandália Verniz Corrente|R$ 329,90|4,9|Últimos 3 pares}}
+      <div class="prod">
+        <div class="ph"><img src="{{img:bolsa-meia-lua.jpg}}" alt="Bolsa Meia-Lua Camurça"><span class="badge hot">HOT</span><span class="fav"><svg class="ico" viewBox="0 0 24 24" fill="#E8714D" stroke="#E8714D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"/></svg></span>
+          <div class="quick"><div class="row"><span class="sz on" style="width:auto;padding:0 14px">Único</span></div><div class="add"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar</div></div>
+        </div>
+        <div class="meta"><div class="nm">Bolsa Meia-Lua Camurça</div><div class="line"><div class="pr">R$ 459,90</div>{{stars:4,8}}</div><div class="stock"><i></i>Em estoque</div></div>
+      </div>
+      {{prod:salto.jpg|NOVO||Scarpin Cetim Coral|R$ 349,90|4,7|Em estoque}}
+      {{prod:hero.jpg|||Plataforma Caramelo|R$ 389,90|5,0|Em estoque}}
+      {{prod:anabela.jpg|HOT|hot|Anabela Juta Nude|R$ 279,90|4,8|Últimos 5 pares}}
+    </div>
+    <div class="progress"><i></i></div>
+  </section>
+
+  <section class="tst">
+    <div class="wrap">
+      <div class="head"><h2>Quem passou pelo estilo</h2><div class="sub">O que dizem sobre a PIVÔ.</div></div>
+    </div>
+    <div class="quote">
+      <div class="st">{{star}}{{star}}{{star}}{{star}}{{star}}</div>
+      <q>“Impecável! Estilo e qualidade que eu não encontrava. Usei a plataforma o dia inteiro e terminei sem reclamar.”</q>
+      <div class="who"><b>Beatriz S.</b> · Outubro 2026 · Plataforma Caramelo</div>
+    </div>
+    <div class="people"><div class="av">M</div><div class="av">L</div><div class="av on">B</div><div class="av">C</div><div class="av">R</div></div>
+    <div class="arrows">
+      <div class="arw"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="m10 6-6 6 6 6"/></svg></div>
+      <div class="arw on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>Pronto para encontrar seu estilo?</h2>
+    <div class="row">
+      <a class="btn">Explorar catálogo completo</a>
+      <a class="wa"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1Z"/><path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1-.6 1.6c-3.8 0-8.5-4.7-8.5-8.5l1.6-.6 1 2L9 9.5Z"/></svg>ou fale com a gente via WhatsApp</a>
+    </div>
+    <div class="mark">Seu estilo te move.</div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div><img src="{{img:logo-coral.png}}" alt="PIVÔ"><div class="tagl">Seu estilo te move.</div></div>
+      <div><h4>Loja</h4><ul><li>Bolsas</li><li>Anabela</li><li>Papete</li><li>Plataforma</li><li>Rasteira</li><li>Salto Fino</li></ul></div>
+      <div><h4>Ajuda</h4><ul><li>Trocas e devoluções</li><li>Entregas</li><li>Guia de tamanhos</li><li>Fale conosco</li></ul></div>
+      <div><h4>Siga</h4><ul><li>Instagram</li><li>WhatsApp</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 PIVÔ. Todos os direitos reservados.</span><span>Seu estilo te move.</span></div>
+  </footer>
+</div>
+</body>
+</html>
