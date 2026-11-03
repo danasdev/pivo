@@ -266,7 +266,7 @@
       {
         "name": "ease-curtain",
         "value": "cubic-bezier(.76,0,.24,1)",
-        "purpose": "Cortina de transição e menu em tela cheia."
+        "purpose": "A cortina da entrada na loja (home -> catálogo) e o menu em tela cheia."
       },
       {
         "name": "ease-inout-strong",
@@ -276,7 +276,7 @@
       {
         "name": "ease-standard",
         "value": "cubic-bezier(.4,0,.2,1)",
-        "purpose": "Fades e o hover de cortina das fotos (500ms)."
+        "purpose": "Fades, troca de página (fade de 280/420ms) e o hover de cortina das fotos (500ms)."
       },
       {
         "name": "ease-in",
@@ -302,6 +302,11 @@
         "name": "duration-curtain",
         "value": "700ms / 1000ms",
         "purpose": "Cortina cobrindo / recolhendo."
+      },
+      {
+        "name": "duration-page-fade",
+        "value": "280ms saída / 420ms entrada",
+        "purpose": "Fade padrão entre páginas (View Transitions)."
       }
     ],
     "breakpoints": [
@@ -398,7 +403,7 @@
       "Um único ponto de coral por tela.",
       "Estrutura por linha fina de 1px e por espaço; sombra só em coisa que flutua.",
       "Tudo que é tocável tem 44px ou mais, com foco de teclado visível.",
-      "Movimento medido: entradas deslizam e aparecem, saídas deslizam e somem, com as mesmas curvas."
+      "Movimento medido: entradas deslizam e aparecem, saídas deslizam e somem, com as mesmas curvas. Entre páginas, só um fade; a cortina é rara de propósito."
     ],
     "rules": [
       {
@@ -456,14 +461,15 @@
       "Do reaproveitar as mesmas três curvas de animação.",
       "Do mostrar a peça recortada sobre campo de cor e deixar o resto vazio ao redor.",
       "Do respeitar prefers-reduced-motion.",
-      "Do escapar todo texto vindo do banco e aceitar só imagens de img/ ou do Storage do projeto."
+      "Do escapar todo texto vindo do banco e aceitar só imagens de img/ ou do Storage do projeto.",
+      "Do trocar de página com fade e guardar a cortina para a entrada na loja."
     ],
     "donts": [
       "Don't usar branco puro, texto branco sobre coral, nem coral em texto pequeno sobre claro.",
       "Don't criar halo, brilho colorido ou sombra em cartão em repouso.",
       "Don't usar degradê entre seções, texto com degradê, vidro decorativo ou emoji como ícone.",
       "Don't aninhar cartão em cartão, usar borda lateral grossa colorida ou números de seção.",
-      "Don't trocar de página sem a cortina, nem usar easing com quique.",
+      "Don't usar a cortina em navegação comum (catálogo, produto, sacola, conta): ali vale o fade. Nem usar easing com quique.",
       "Don't colocar a Antonio em títulos de seção, botões ou texto corrido.",
       "Don't criar uma rolagem interna numa seção.",
       "Don't mostrar o quadrado azul de toque nem o contorno de foco no clique do mouse.",

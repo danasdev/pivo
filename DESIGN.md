@@ -152,7 +152,7 @@ A PIVÔ é montada como um palco quase vazio: um fundo de cor decidida, uma peç
 
 O nome pede isso: *pivô* é o ponto fixo em torno do qual algo gira. A página inteira segue essa lógica. Há um ponto estável (a peça, o título, o botão) e o resto orbita ao redor, com respiro generoso. O luxo aqui não vem de ornamento, vem de **espaço, contraste firme e precisão**: cantos que se repetem, uma curva de animação que se repete, um coral que aparece pouco e por isso brilha.
 
-A sutileza é construída, não improvisada. Cada elemento entra deslizando e esmaece no mesmo ritmo; a troca de página usa sempre a mesma cortina com as quatro letras do logo; o mouse desloca camadas em milímetros, só para dar profundidade. Nada pisca, nada pula, nada brilha.
+A sutileza é construída, não improvisada. Cada elemento entra deslizando e esmaece no mesmo ritmo; a troca de página é um fade discreto, e a cortina com as quatro letras do logo fica guardada para um único momento, a entrada na loja; o mouse desloca camadas em milímetros, só para dar profundidade. Nada pisca, nada pula, nada brilha.
 
 **Key Characteristics:**
 - Faixas de cor cheias e alternadas (terracota funda, creme, terracota funda), nunca degradês entre seções.
@@ -160,7 +160,7 @@ A sutileza é construída, não improvisada. Cada elemento entra deslizando e es
 - Um único ponto de coral por tela: a peça, o botão principal ou a etiqueta, nunca todos juntos.
 - Estrutura por linha fina de 1px e por espaço; sombra só em coisa que flutua.
 - Tudo que é tocável tem 44px ou mais, e o foco de teclado é sempre visível.
-- Movimento medido: entradas deslizam e aparecem, saídas deslizam e somem, e a mesma curva volta a cada vez.
+- Movimento medido: entradas deslizam e aparecem, saídas deslizam e somem, e a mesma curva volta a cada vez. Entre páginas, só um fade; a cortina é rara de propósito.
 
 ## Colors
 
@@ -290,8 +290,10 @@ Todos com **caráter de botão de ateliê**: silenciosos em repouso, precisos no
 - **Aviso (toast):** pílula ferrugem com miniatura da peça, texto e atalho "Ver sacola"; aparece embaixo e some em 3,2s.
 - **Cookies:** cartão creme no canto, sem bloquear a página; "Recusar" e "Aceitar" com o mesmo peso visual.
 
-### Cortina de transição (componente de assinatura)
-A mesma cortina preta da intro vale para **toda troca de página**: ao clicar, ela sobe de baixo (700ms, `cubic-bezier(.76,0,.24,1)`), as quatro letras do logo sobem em máscara uma a uma, e na página nova as letras descem e a cortina recolhe para cima (1000ms). É o único elemento preto do sistema e só existe nesse gesto.
+### Transição entre páginas
+**Padrão: fade.** Toda troca de página usa o fade nativo do navegador (CSS View Transitions, `@view-transition { navigation: auto }`): a página sai em 280ms e a nova entra em 420ms, com `cubic-bezier(.4,0,.2,1)`. Navegadores sem suporte trocam direto, sem efeito. Quem desativa animações não vê fade.
+
+**Exceção, a cortina (componente de assinatura).** A cortina preta da intro, com as quatro letras do logo, é reservada à **entrada na loja**: só ao ir da home para o catálogo. Ela sobe de baixo (700ms, `cubic-bezier(.76,0,.24,1)`), as letras sobem em máscara uma a uma, e no catálogo as letras descem e a cortina recolhe para cima (1000ms). É o único elemento preto do sistema e, por ser rara, continua marcando o momento. Nova exceção só entra se for outro marco de entrada, nunca navegação comum (produto, sacola, conta).
 
 ### Entrada e saída na rolagem
 Elementos marcados deslizam e esmaecem acompanhando a posição na tela: chegam por baixo (ou pelo lado, nos títulos) quando entram pela borda inferior, e saem deslizando para cima quando passam pela borda superior, ainda visíveis. Deslocamento de até 80px, curva `cubic-bezier(.16,1,.3,1)`.
@@ -304,7 +306,8 @@ Elementos marcados deslizam e esmaecem acompanhando a posição na tela: chegam 
 - **Do** escrever todo título de seção em duas linhas, sem serifa e depois serifada.
 - **Do** separar com linha de 1px e com espaço; reservar sombra para o que flutua.
 - **Do** manter 44px ou mais em tudo que se toca e foco coral visível no teclado.
-- **Do** reaproveitar as mesmas três curvas: `cubic-bezier(.16,1,.3,1)` (entradas), `cubic-bezier(.76,0,.24,1)` (cortinas) e `cubic-bezier(.4,0,.2,1)` (fades e hover).
+- **Do** reaproveitar as mesmas três curvas: `cubic-bezier(.16,1,.3,1)` (entradas), `cubic-bezier(.76,0,.24,1)` (a cortina) e `cubic-bezier(.4,0,.2,1)` (fades, troca de página e hover).
+- **Do** trocar de página com fade e guardar a cortina para a entrada na loja.
 - **Do** mostrar a peça recortada sobre campo de cor e deixar o resto da página vazio ao redor dela.
 - **Do** respeitar `prefers-reduced-motion`: sem cortina, sem deslizes, tudo visível e parado.
 - **Do** escapar todo texto vindo do banco antes de virar HTML e aceitar só imagens de `img/` ou do Storage do projeto.
@@ -314,7 +317,7 @@ Elementos marcados deslizam e esmaecem acompanhando a posição na tela: chegam 
 - **Don't** criar halo, brilho colorido ou sombra em cartão em repouso.
 - **Don't** usar degradê entre seções, texto com degradê, vidro decorativo ou ícones de emoji.
 - **Don't** aninhar cartão em cartão, usar borda lateral grossa colorida ou números de seção.
-- **Don't** trocar de página sem a cortina, nem usar easing com quique.
+- **Don't** usar a cortina em navegação comum (catálogo, produto, sacola, conta): ali vale o fade. Nem usar easing com quique.
 - **Don't** colocar a Antonio em títulos de seção, botões ou texto corrido.
 - **Don't** criar uma rolagem interna numa seção: a rolagem da página é a única.
 - **Don't** mostrar o quadrado azul de toque nem o contorno de foco no clique do mouse; manter o contorno só para teclado.

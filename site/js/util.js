@@ -101,6 +101,6 @@ async function exigirLogin(item){
   if (window.Loja && Loja.user) return true;
   try { if (item) sessionStorage.setItem('pivo-pendente', JSON.stringify({id: String(item.id).slice(0, 80), t: item.t ? +item.t : null})); } catch(e){}
   const destino = 'conta.html?volta=' + encodeURIComponent(voltaSegura(paginaAtual()) || 'index.html');
-  if (window.irPara) irPara(destino); else location.href = destino;
+  location.href = destino;
   return false;
 }

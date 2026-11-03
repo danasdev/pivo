@@ -1,5 +1,15 @@
-/* Transição entre páginas: a mesma cortina da intro.
-   Ao sair, ela sobe de baixo cobrindo a tela; na página nova, recolhe para cima. */
+/* Transição padrão entre páginas: fade do próprio navegador (CSS View Transitions).
+   Navegadores sem suporte simplesmente trocam de página, sem efeito. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:fade-out .28s cubic-bezier(.4,0,.2,1) both}
+::view-transition-new(root){animation:fade-in .42s cubic-bezier(.4,0,.2,1) .06s both}
+@keyframes fade-out{to{opacity:0}}
+@keyframes fade-in{from{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms;animation-delay:0s}
+}
+
+/* Cortina: reservada à entrada na loja (home -> catálogo). */
 html.cortina-on::after{content:"";position:fixed;inset:0;z-index:200;background:#0A0A0A}
 .cortina{position:fixed;inset:0;z-index:201;display:flex;align-items:center;justify-content:center;background:#0A0A0A;color:#FFF4EC;
   pointer-events:none;clip-path:inset(100% 0 0 0)}

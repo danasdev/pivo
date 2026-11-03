@@ -1,4 +1,4 @@
-/* Transição entre páginas com a cortina da intro (script clássico no <head>, sem dependências). */
+/* Cortina da intro, usada só na entrada na loja (home -> catálogo). As demais trocas de página usam o fade nativo (css/cortina.css). */
 (function(){
   var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var KEY = 'pivo-cortina', root = document.documentElement, chegou = false;
@@ -48,10 +48,13 @@
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a || a.target === '_blank' || a.hasAttribute('download') || a.hasAttribute('data-no-cortina')) return;
+    if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
     var u = new URL(a.href, location.href);
     if (u.origin !== location.origin) return;                                    // links externos (WhatsApp etc.)
-    if (u.pathname === location.pathname && u.search === location.search) return; // âncora na mesma página
-    if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
+    // a cortina é só da "entrada na loja": home -> catálogo. O resto usa o fade padrão do navegador.
+    var daHome = /\/(index(\.html)?)?$/.test(location.pathname);
+    var paraCatalogo = /\/catalogo(\.html)?$/.test(u.pathname);
+    if (!daHome || !paraCatalogo) return;
     e.preventDefault();
     irPara(u.href);
   });
