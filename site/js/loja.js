@@ -50,18 +50,17 @@ async function carregarCatalogo(){
 
 /* ---------- conta: sacola e favoritos acompanham a pessoa ---------- */
 const Loja = window.Loja = { user: null };
+let authOk; Loja.authPronto = new Promise(r => authOk = r);   // resolve na 1ª resposta do login
 let salvarT;
-function salvarNaConta(){
-  if (!Loja.user) return;
-  clearTimeout(salvarT);
-  salvarT = setTimeout(() => {
-    setDoc(doc(db, 'usuarios', Loja.user.uid), {
-      sacola: Sacola.itens().map(i => ({id: i.id, t: i.t, q: i.q})),
-      favoritos: Favs.lista(),
-      atualizado: serverTimestamp(),
-    }, {merge: true}).catch(e => console.warn('[PIVÔ] Não foi possível salvar na conta.', e.code));
-  }, 600);
+function gravar(){
+  if (!Loja.user) return Promise.resolve();
+  return setDoc(doc(db, 'usuarios', Loja.user.uid), {
+    sacola: Sacola.itens().map(i => ({id: i.id, t: i.t, q: i.q})),
+    favoritos: Favs.lista(),
+    atualizado: serverTimestamp(),
+  }, {merge: true}).catch(e => console.warn('[PIVÔ] Não foi possível salvar na conta.', e.code));
 }
+function salvarNaConta(){ if (!Loja.user) return; clearTimeout(salvarT); salvarT = setTimeout(gravar, 600); }
 addEventListener('sacola:mudou', salvarNaConta);
 addEventListener('favs:mudou', salvarNaConta);
 
@@ -82,9 +81,16 @@ onAuthStateChanged(auth, async user => {
       });
       Sacola.salvar([...mapa.values()], true);
       Favs.salvar([...new Set([...(Array.isArray(d.favoritos) ? d.favoritos : []), ...Favs.lista()])].filter(x => typeof x === 'string'), true);
-      salvarNaConta();
+      // peça escolhida antes de entrar
+      try {
+        const pend = JSON.parse(sessionStorage.getItem('pivo-pendente'));
+        sessionStorage.removeItem('pivo-pendente');
+        if (pend && typeof pend.id === 'string') Sacola.add(pend.id, Number.isInteger(pend.t) ? pend.t : null);
+      } catch(e){}
+      clearTimeout(salvarT); await gravar();
     } catch (e) { console.warn('[PIVÔ] Conta indisponível.', e.code); }
   }
+  authOk();
   dispatchEvent(new CustomEvent('loja:usuario', {detail: user}));
 });
 

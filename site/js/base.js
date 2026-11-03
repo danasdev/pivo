@@ -32,7 +32,7 @@ function avisar(p, tam){
   clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 3200);
   document.querySelectorAll('[data-bag-count]').forEach(b => b.animate([{transform:'scale(1.6)'},{transform:'scale(1)'}], {duration:500, easing:OUT}));
 }
-function comprar(id, tam){ const p = produto(id); if (!p) return; Sacola.add(id, tam); avisar(p, tam); }
+async function comprar(id, tam){ const p = produto(id); if (!p) return; if (!(await exigirLogin({id, t: tam}))) return; Sacola.add(id, tam); avisar(p, tam); }
 
 /* ---------- card de produto ---------- */
 function stars(p){ return `<span class="stars" aria-label="Nota ${nota(p.nota)} de 5">${ICON.star.repeat(5)}<span>${nota(p.nota)} (${p.aval | 0})</span></span>`; }

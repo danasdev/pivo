@@ -78,7 +78,8 @@ function initChegadas(){
 
 // sacola: adiciona sem recarregar e avisa
 let toastT;
-function addToBag(p, size){
+async function addToBag(p, size){
+  if (!(await exigirLogin({id: p.id, t: size}))) return;
   Sacola.add(p.id, size);
   document.querySelectorAll('[data-bag-count]').forEach(b => b.animate([{transform:'scale(1.6)'},{transform:'scale(1)'}], {duration:500, easing:OUT}));
   const t = document.getElementById('toast');

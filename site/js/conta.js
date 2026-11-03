@@ -25,7 +25,9 @@ function erro(e){
 const emailOk = v => /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/.test(v);
 
 // destino após entrar: só valores conhecidos (sem redirecionamento aberto)
-const volta = new URLSearchParams(location.search).get('volta') === 'sacola' ? 'sacola.html' : null;
+const volta = voltaSegura(new URLSearchParams(location.search).get('volta'));
+let pendente = null; try { pendente = JSON.parse(sessionStorage.getItem('pivo-pendente')); } catch(e){}
+if (pendente) document.querySelector('.auth__intro p').textContent = 'Entre ou crie sua conta para adicionar a peça à sacola. Ela já está separada para você.';
 
 /* ---------- abas ---------- */
 function aba(criar){
@@ -128,7 +130,12 @@ $('excluir').onclick = async () => {
 onAuthStateChanged(auth, user => {
   $('fora').hidden = !!user; $('dentro').hidden = !user;
   if (!user) return;
-  if (volta){ location.replace(volta); return; }
+  if (volta){
+    // espera a sacola da conta ser sincronizada (e a peça separada entrar) antes de voltar
+    const ir = () => location.replace(volta);
+    addEventListener('loja:usuario', ir, {once:true}); setTimeout(ir, 5000);
+    return;
+  }
   $('ola').textContent = `Olá, ${(user.displayName || 'cliente').split(' ')[0]}.`;
   $('verif').hidden = user.emailVerified; $('verifEmail').textContent = user.email || '';
   quandoPronto(() => { favoritos(); });

@@ -10,3 +10,5 @@
 @keyframes ck{from{opacity:0;transform:translateY(20px)}}
 @media (max-width:560px){ .cookies{bottom:calc(88px + env(safe-area-inset-bottom))} }
 @media (prefers-reduced-motion:reduce){ .cookies{animation:none} }
+
+.cookies{-webkit-tap-highlight-color:transparent}

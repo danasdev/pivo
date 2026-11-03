@@ -1,3 +1,5 @@
+html{-webkit-tap-highlight-color:transparent}
+:focus:not(:focus-visible){outline:none}
 /* Painel da loja */
 .adm{background:var(--cream)}
 .adm__top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gut);

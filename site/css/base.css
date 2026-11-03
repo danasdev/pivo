@@ -19,6 +19,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
+html{-webkit-tap-highlight-color:transparent}
+:focus:not(:focus-visible){outline:none}
 html{background:var(--cream)}
 body{background:var(--cream);color:var(--rust);font-family:var(--body);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}

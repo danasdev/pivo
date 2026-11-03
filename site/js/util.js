@@ -90,3 +90,17 @@ function linkWhatsApp(itens, codigo){
   const msg = `Olá, PIVÔ! Quero finalizar meu pedido${codigo ? ' #' + codigo : ''}:\n\n${linhas.join('\n')}\n\nTotal dos produtos: ${brl(total)}`;
   return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
+
+/* ---------- login obrigatório para a sacola ---------- */
+// destino de volta depois de entrar: só páginas da loja (sem redirecionamento para fora)
+function voltaSegura(v){ return /^(index|catalogo|produto|sacola)(\.html)?(\?[\w=&%.-]{0,200})?$/.test(v || '') ? v : null; }
+function paginaAtual(){ return (location.pathname.split('/').pop() || 'index.html') + location.search; }
+/* Resolve true se a pessoa está logada. Se não, guarda a peça escolhida e leva para "Entrar". */
+async function exigirLogin(item){
+  if (window.Loja && Loja.authPronto) await Promise.race([Loja.authPronto, new Promise(r => setTimeout(r, 3000))]);
+  if (window.Loja && Loja.user) return true;
+  try { if (item) sessionStorage.setItem('pivo-pendente', JSON.stringify({id: String(item.id).slice(0, 80), t: item.t ? +item.t : null})); } catch(e){}
+  const destino = 'conta.html?volta=' + encodeURIComponent(voltaSegura(paginaAtual()) || 'index.html');
+  if (window.irPara) irPara(destino); else location.href = destino;
+  return false;
+}

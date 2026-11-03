@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T05:18:17Z",
+  "title": "Design System: PIVÔ",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Preto Tinta",
+        "canonical": "oklch(14% 0.000 90)",
+        "tonalRamp": [
+          "#161616",
+          "#303030",
+          "#4D4D4D",
+          "#6C6C6C",
+          "#8C8C8C",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "coral": {
+        "role": "primary",
+        "displayName": "Coral PIVÔ",
+        "canonical": "oklch(68% 0.156 38)",
+        "tonalRamp": [
+          "#390000",
+          "#660000",
+          "#8E1B00",
+          "#B3411B",
+          "#D96440",
+          "#F19073",
+          "#FFBEA8",
+          "#FFE2D4"
+        ]
+      },
+      "rust": {
+        "role": "primary",
+        "displayName": "Ferrugem",
+        "canonical": "oklch(40% 0.121 34)",
+        "tonalRamp": [
+          "#320000",
+          "#5C0F00",
+          "#822D1B",
+          "#A64E3B",
+          "#CA6F5A",
+          "#E49886",
+          "#FAC2B4",
+          "#FFE5DC"
+        ]
+      },
+      "rust-deep": {
+        "role": "secondary",
+        "displayName": "Ferrugem Funda",
+        "canonical": "oklch(33% 0.098 34)",
+        "tonalRamp": [
+          "#2E0601",
+          "#551A0C",
+          "#793626",
+          "#9C5544",
+          "#C07664",
+          "#DB9C8D",
+          "#F3C5B9",
+          "#FFE7DF"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Creme",
+        "canonical": "oklch(97% 0.016 59)",
+        "tonalRamp": [
+          "#1A1511",
+          "#362F29",
+          "#544B45",
+          "#736A63",
+          "#948A83",
+          "#B4ACA6",
+          "#D6D0CB",
+          "#F1EEEB"
+        ]
+      },
+      "blush": {
+        "role": "neutral",
+        "displayName": "Blush",
+        "canonical": "oklch(94% 0.027 57)",
+        "tonalRamp": [
+          "#1D140E",
+          "#3A2D24",
+          "#594A3F",
+          "#78685D",
+          "#9A887D",
+          "#B9ABA1",
+          "#D9CFC8",
+          "#F4EDE8"
+        ]
+      },
+      "peach": {
+        "role": "tertiary",
+        "displayName": "Pêssego",
+        "canonical": "oklch(87% 0.064 52)",
+        "tonalRamp": [
+          "#250F03",
+          "#482711",
+          "#69432B",
+          "#8A6149",
+          "#AC8268",
+          "#C9A691",
+          "#E5CBBC",
+          "#FCEBE1"
+        ]
+      },
+      "sand": {
+        "role": "tertiary",
+        "displayName": "Areia",
+        "canonical": "oklch(85% 0.051 58)",
+        "tonalRamp": [
+          "#221205",
+          "#422A17",
+          "#624630",
+          "#83654E",
+          "#A4856D",
+          "#C3A895",
+          "#E0CDBF",
+          "#F9ECE3"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Marrom Suave",
+        "canonical": "oklch(41% 0.073 37)",
+        "tonalRamp": [
+          "#290C05",
+          "#4D2216",
+          "#6F3E30",
+          "#915C4D",
+          "#B47D6D",
+          "#D0A294",
+          "#EAC8BE",
+          "#FFE9E2"
+        ]
+      },
+      "wall-glow": {
+        "role": "neutral",
+        "displayName": "Parede Brasa",
+        "canonical": "oklch(52% 0.139 35)",
+        "tonalRamp": [
+          "#360000",
+          "#620100",
+          "#882509",
+          "#AD472E",
+          "#D2694F",
+          "#EB947D",
+          "#FFBFAF",
+          "#FFE3D8"
+        ]
+      },
+      "wall-deep": {
+        "role": "neutral",
+        "displayName": "Parede Funda",
+        "canonical": "oklch(28% 0.084 33)",
+        "tonalRamp": [
+          "#2B0904",
+          "#511E15",
+          "#743A2E",
+          "#96594C",
+          "#BA796B",
+          "#D59F93",
+          "#EEC7BE",
+          "#FFE8E2"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Erro",
+        "canonical": "oklch(48% 0.161 33)",
+        "tonalRamp": [
+          "#3A0000",
+          "#680000",
+          "#911400",
+          "#B63D25",
+          "#DC6047",
+          "#F48E78",
+          "#FFBCAB",
+          "#FFE1D6"
+        ]
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "Sucesso",
+        "canonical": "oklch(47% 0.100 148)",
+        "tonalRamp": [
+          "#001E02",
+          "#003C11",
+          "#1D5B2B",
+          "#3F7B49",
+          "#609D69",
+          "#8BBC91",
+          "#B9DCBD",
+          "#DFF6E1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "statement": {
+        "displayName": "Declaração",
+        "purpose": "A frase do herói, em Antonio caixa-alta; uma por site."
+      },
+      "headline-sans": {
+        "displayName": "Título (voz firme)",
+        "purpose": "Primeira linha de todo título de seção."
+      },
+      "headline-serif": {
+        "displayName": "Título (voz de vitrine)",
+        "purpose": "Segunda linha, Bodoni Moda, logo abaixo da primeira."
+      },
+      "title": {
+        "displayName": "Título menor",
+        "purpose": "Nome de categoria e de peça em destaque."
+      },
+      "body": {
+        "displayName": "Corpo",
+        "purpose": "Descrições e parágrafos, até 34em de largura."
+      },
+      "label": {
+        "displayName": "Rótulo",
+        "purpose": "Cabeçalhos de coluna e etiquetas em caixa-alta."
+      },
+      "control": {
+        "displayName": "Controle",
+        "purpose": "Botões, chips, tamanhos e navegação."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 18px 40px rgba(0,0,0,.25)",
+        "purpose": "Aviso de sacola."
+      },
+      {
+        "name": "dock",
+        "value": "0 10px 30px rgba(0,0,0,.12)",
+        "purpose": "Barra de atalhos do celular."
+      },
+      {
+        "name": "modal",
+        "value": "0 30px 80px rgba(0,0,0,.3)",
+        "purpose": "Diálogo do painel."
+      },
+      {
+        "name": "lift",
+        "value": "0 14px 30px rgba(0,0,0,.18)",
+        "purpose": "Botão do herói no hover."
+      },
+      {
+        "name": "product",
+        "value": "drop-shadow(0 6px 10px rgba(0,0,0,.25))",
+        "purpose": "Peça recortada sobre o piso."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Entradas: elementos deslizam e assentam sem quique."
+      },
+      {
+        "name": "ease-curtain",
+        "value": "cubic-bezier(.76,0,.24,1)",
+        "purpose": "Cortina de transição e menu em tela cheia."
+      },
+      {
+        "name": "ease-inout-strong",
+        "value": "cubic-bezier(.87,0,.13,1)",
+        "purpose": "Setas, sublinhados e letras do rodapé."
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(.4,0,.2,1)",
+        "purpose": "Fades e o hover de cortina das fotos (500ms)."
+      },
+      {
+        "name": "ease-in",
+        "value": "cubic-bezier(.7,0,.84,0)",
+        "purpose": "Saídas: letras e fotos que somem."
+      },
+      {
+        "name": "duration-fast",
+        "value": "300ms",
+        "purpose": "Cor de botão e chip."
+      },
+      {
+        "name": "duration-base",
+        "value": "500ms",
+        "purpose": "Hover de foto e sublinhado."
+      },
+      {
+        "name": "duration-enter",
+        "value": "1100ms",
+        "purpose": "Entrada de bloco na rolagem."
+      },
+      {
+        "name": "duration-curtain",
+        "value": "700ms / 1000ms",
+        "purpose": "Cortina cobrindo / recolhendo."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "menu",
+        "value": "900px"
+      },
+      {
+        "name": "celular",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão primário",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal sobre creme: pílula ferrugem; a seta desliza no hover.",
+      "html": "<button class=\"ds-btn\">Adicionar à sacola <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16\"/><path d=\"m14 6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border:0;border-radius:999px;background:#7A2614;color:#FFF4EC;font:500 16px/1 Poppins,system-ui,sans-serif;cursor:pointer;transition:background .3s}.ds-btn svg{transition:transform .45s cubic-bezier(.87,0,.13,1)}.ds-btn:hover{background:#5E1D0E}.ds-btn:hover svg{transform:translateX(3px)}.ds-btn:focus-visible{outline:2px solid #E8714D;outline-offset:3px}"
+    },
+    {
+      "name": "Botão CTA coral",
+      "kind": "button",
+      "refersTo": "button-cta",
+      "description": "Chamada única da primeira dobra: coral com texto preto; no hover vira ferrugem e sobe 2px.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Comprar agora <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16\"/><path d=\"m14 6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-cta{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 30px;border-radius:999px;background:#E8714D;color:#0A0A0A;text-decoration:none;font:500 16px/1 Poppins,system-ui,sans-serif;white-space:nowrap;transition:background .35s,color .35s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}.ds-cta svg{transition:transform .45s cubic-bezier(.87,0,.13,1)}.ds-cta:hover{background:#7A2614;color:#FFF4EC;transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.18)}.ds-cta:hover svg{transform:translateX(3px)}.ds-cta:focus-visible{outline:2px solid #E8714D;outline-offset:3px}"
+    },
+    {
+      "name": "Botão fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Ação secundária: contorno fino de 1px; preenche de ferrugem no hover.",
+      "html": "<a class=\"ds-ghost\" href=\"#\">Ver todas as peças <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16\"/><path d=\"m14 6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-ghost{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:999px;border:1px solid rgba(122,38,20,.35);color:#7A2614;text-decoration:none;font:500 15px/1 Poppins,system-ui,sans-serif;white-space:nowrap;transition:background .35s,color .35s,border-color .35s}.ds-ghost svg{transition:transform .45s cubic-bezier(.87,0,.13,1)}.ds-ghost:hover{background:#7A2614;border-color:#7A2614;color:#FFF4EC}.ds-ghost:hover svg{transform:translateX(3px)}.ds-ghost:focus-visible{outline:2px solid #E8714D;outline-offset:3px}"
+    },
+    {
+      "name": "Chip de categoria",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtro do catálogo: pílula de 44px com a contagem; selecionado vira ferrugem.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">Todos <span>12</span></button><button class=\"ds-chip\" aria-pressed=\"false\">Bolsas <span>2</span></button><button class=\"ds-chip\" aria-pressed=\"false\">Salto fino <span>2</span></button></div>",
+      "css": ".ds-chips{display:flex;gap:8px}.ds-chip{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(122,38,20,.25);background:none;color:#7A2614;font:500 14px/1 Poppins,system-ui,sans-serif;cursor:pointer;transition:background .25s,color .25s,border-color .25s}.ds-chip span{font-weight:400;opacity:.7}.ds-chip:hover{border-color:#7A2614}.ds-chip[aria-pressed=true]{background:#7A2614;border-color:#7A2614;color:#FFF4EC}.ds-chip:focus-visible{outline:2px solid #E8714D;outline-offset:3px}"
+    },
+    {
+      "name": "Tamanhos",
+      "kind": "chip",
+      "refersTo": "size-pill",
+      "description": "Escolha de tamanho: 44px; esgotado fica a 35%, riscado e desabilitado.",
+      "html": "<div class=\"ds-sizes\"><button class=\"ds-size\">34</button><button class=\"ds-size\" aria-pressed=\"true\">35</button><button class=\"ds-size\">36</button><button class=\"ds-size\" disabled>38</button></div>",
+      "css": ".ds-sizes{display:flex;gap:6px}.ds-size{min-width:44px;height:44px;padding:0 10px;border-radius:999px;border:1px solid rgba(122,38,20,.28);background:none;color:#7A2614;font:500 14px/1 Poppins,system-ui,sans-serif;cursor:pointer;transition:background .25s,color .25s,border-color .25s}.ds-size:hover,.ds-size[aria-pressed=true]{background:#7A2614;color:#FFF4EC;border-color:#7A2614}.ds-size:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed;background:none;color:#7A2614}.ds-size:focus-visible{outline:2px solid #E8714D;outline-offset:3px}"
+    },
+    {
+      "name": "Cartão de produto",
+      "kind": "card",
+      "refersTo": "product-card-media",
+      "description": "Foto 4:5 de cantos 18px sobre areia; nome, preço, estrelas e estoque abaixo, sem caixa. No site, o hover traz a foto em uso como cortina.",
+      "html": "<article class=\"ds-prod\"><div class=\"ds-prod__media\"><span class=\"ds-badge\">Novo</span><div class=\"ds-prod__art\"></div></div><div class=\"ds-prod__row\"><span class=\"ds-prod__name\">Scarpin Cetim Coral</span><span class=\"ds-prod__price\">R$ 349,90</span></div><div class=\"ds-prod__meta\"><span class=\"ds-stars\"><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8Z\"/></svg><span>4,8 (52)</span></span><span class=\"ds-stock\"><i></i>Em estoque</span></div></article>",
+      "css": ".ds-prod{width:280px;font-family:Poppins,system-ui,sans-serif}.ds-prod__media{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:18px;background:#E9C7AE}.ds-prod__art{position:absolute;left:22%;right:22%;top:30%;bottom:26%;border-radius:60% 30% 50% 40%;background:#E8714D}.ds-badge{position:absolute;z-index:2;left:14px;top:14px;display:flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:#E8714D;color:#0A0A0A;font:600 11px/1 Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}.ds-prod__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}.ds-prod__name{font:400 16px/1.35 Poppins,system-ui,sans-serif;color:#0A0A0A}.ds-prod__price{font:600 17px/1.2 Montserrat,system-ui,sans-serif;color:#7A2614;white-space:nowrap}.ds-prod__meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px;font:400 13px/1 Poppins,system-ui,sans-serif;color:#7A2614}.ds-stars{display:flex;align-items:center;gap:2px}.ds-stars span{margin-left:6px;color:#6B3A2C}.ds-stock{display:flex;align-items:center;gap:6px;color:#6B3A2C}.ds-stock i{width:7px;height:7px;border-radius:50%;background:#E8714D}"
+    },
+    {
+      "name": "Campo de formulário",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Rótulo sempre visível; fundo creme, borda fina, foco coral e erro escrito.",
+      "html": "<label class=\"ds-field\"><span>E-mail</span><input type=\"email\" placeholder=\"voce@email.com\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;width:320px;font-family:Poppins,system-ui,sans-serif}.ds-field span{font:500 14px/1 Poppins,system-ui,sans-serif;color:#7A2614}.ds-field input{min-height:50px;padding:12px 16px;border-radius:14px;border:1px solid rgba(122,38,20,.25);background:#FFF4EC;font:400 16px/1.4 Poppins,system-ui,sans-serif;color:#0A0A0A}.ds-field input:focus{outline:2px solid #E8714D;outline-offset:1px;border-color:transparent}.ds-field input[aria-invalid=true]{border-color:#A42B12}"
+    },
+    {
+      "name": "Menu em pílula",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Barra flutuante de 64px com desfoque; sublinhado de 1px cresce da esquerda no hover.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav__logo\">PIVÔ</span><span class=\"ds-nav__links\"><a href=\"#\">Bolsas</a><a href=\"#\">Salto fino</a><a href=\"#\">Plataforma</a></span><a class=\"ds-nav__pill\" href=\"#\">Comprar agora</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px;padding:0 12px 0 30px;border-radius:999px;background:rgba(255,244,236,.78);border:1px solid rgba(122,38,20,.14);color:#7A2614;font-family:Poppins,system-ui,sans-serif;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}.ds-nav__logo{font:300 26px/1 Antonio,Oswald,sans-serif;letter-spacing:.32em;text-transform:uppercase}.ds-nav__links{display:flex;gap:28px;font:400 15px/1 Poppins,system-ui,sans-serif}.ds-nav__links a{position:relative;padding:8px 0;color:inherit;text-decoration:none}.ds-nav__links a::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.87,0,.13,1)}.ds-nav__links a:hover::after{transform:scaleX(1);transform-origin:left}.ds-nav__pill{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:999px;background:#7A2614;color:#FFF4EC;text-decoration:none;font:500 14px/1 Poppins,system-ui,sans-serif}"
+    },
+    {
+      "name": "Aviso de sacola",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Aviso flutuante em pílula ferrugem: miniatura, texto e atalho; sombra Float e some em 3,2s.",
+      "html": "<div class=\"ds-toast\"><span class=\"ds-toast__img\"></span><span>Plataforma Caramelo · 36 adicionado</span><a href=\"#\">Ver sacola</a></div>",
+      "css": ".ds-toast{display:inline-flex;align-items:center;gap:12px;padding:12px 14px 12px 12px;border-radius:999px;background:#7A2614;color:#FFF4EC;font:500 14px/1.2 Poppins,system-ui,sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.25)}.ds-toast__img{width:40px;height:40px;border-radius:50%;background:#E9C7AE;flex:none}.ds-toast a{margin-left:6px;padding:8px 14px;border-radius:999px;background:#FFF4EC;color:#7A2614;text-decoration:none;white-space:nowrap}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Palco Silencioso",
+    "overview": "A PIVÔ é montada como um palco quase vazio: um fundo de cor decidida, uma peça no centro, e só. A interface não compete com o produto. Ela se organiza em poucas faixas largas de cor, escreve pouco, usa linhas finas em vez de caixas e deixa uma única coisa se mover por vez. O nome pede isso: pivô é o ponto fixo em torno do qual algo gira. O luxo vem de espaço, contraste firme e precisão: cantos que se repetem, uma curva de animação que se repete, um coral que aparece pouco e por isso brilha.",
+    "keyCharacteristics": [
+      "Faixas de cor cheias e alternadas, nunca degradês entre seções.",
+      "Uma voz sem serifa e uma serifada em todo título de duas linhas; a fonte da marca só na declaração do herói.",
+      "Um único ponto de coral por tela.",
+      "Estrutura por linha fina de 1px e por espaço; sombra só em coisa que flutua.",
+      "Tudo que é tocável tem 44px ou mais, com foco de teclado visível.",
+      "Movimento medido: entradas deslizam e aparecem, saídas deslizam e somem, com as mesmas curvas."
+    ],
+    "rules": [
+      {
+        "name": "The One Coral Rule",
+        "body": "O coral ocupa no máximo uma região de destaque por tela e ≤10% da área. Se duas coisas pedem coral, uma vira ferrugem.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-On-Coral Rule",
+        "body": "Texto sobre coral é sempre preto tinta; branco sobre coral não passa no contraste.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never-White Rule",
+        "body": "Nenhuma superfície ou texto usa #FFFFFF puro; o mais claro é o creme.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Rule",
+        "body": "As seções são campos de cor cheios que se alternam; a transição é uma borda reta, nunca um degradê.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Todo título de seção tem duas linhas: uma sem serifa e outra serifada.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Statement Rule",
+        "body": "A Antonio existe para a declaração do herói e para as letras do logo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float-Only Rule",
+        "body": "Sombra é para o que flutua; cartão, painel e botão em repouso são planos.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Neutral Shadow Rule",
+        "body": "Sombras são pretas translúcidas, nunca coloridas nem em halo.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Separar é com linha de 1px ou com espaço; sem cartão dentro de cartão.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do deixar uma coisa se mover por vez.",
+      "Do usar coral uma vez por tela e ferrugem para todo o resto.",
+      "Do escrever todo título de seção em duas linhas, sem serifa e depois serifada.",
+      "Do separar com linha de 1px e com espaço; reservar sombra para o que flutua.",
+      "Do manter 44px ou mais em tudo que se toca e foco coral visível no teclado.",
+      "Do reaproveitar as mesmas três curvas de animação.",
+      "Do mostrar a peça recortada sobre campo de cor e deixar o resto vazio ao redor.",
+      "Do respeitar prefers-reduced-motion.",
+      "Do escapar todo texto vindo do banco e aceitar só imagens de img/ ou do Storage do projeto."
+    ],
+    "donts": [
+      "Don't usar branco puro, texto branco sobre coral, nem coral em texto pequeno sobre claro.",
+      "Don't criar halo, brilho colorido ou sombra em cartão em repouso.",
+      "Don't usar degradê entre seções, texto com degradê, vidro decorativo ou emoji como ícone.",
+      "Don't aninhar cartão em cartão, usar borda lateral grossa colorida ou números de seção.",
+      "Don't trocar de página sem a cortina, nem usar easing com quique.",
+      "Don't colocar a Antonio em títulos de seção, botões ou texto corrido.",
+      "Don't criar uma rolagem interna numa seção.",
+      "Don't mostrar o quadrado azul de toque nem o contorno de foco no clique do mouse.",
+      "Don't usar fotos de estoque genéricas."
+    ]
+  }
+}
